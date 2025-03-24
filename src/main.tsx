@@ -27,6 +27,13 @@ root.render(
             colorBgBase: "#1b1429",
             colorError: "#eb2f74",
             colorWarning: "#fad014",
+            fontFamily: "Kodchasan, sans-serif",
+            fontSize: 16,
+          },
+          components: {
+            Timeline: {
+              tailColor: "#eeb3ff",
+            },
           },
         }}
       >

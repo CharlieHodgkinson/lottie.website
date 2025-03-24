@@ -27,6 +27,7 @@ export const About = () => {
             level={2}
             style={{
               backgroundColor: "#a545d1",
+              color: "white",
               paddingLeft: "10px",
               paddingRight: "10px",
             }}
@@ -37,13 +38,12 @@ export const About = () => {
         <Typography.Paragraph>
           Hi, I'm Charlotte. I currently live in London working as a fullstack
           software engineer at Wealth Wizards. Where I build web apps with
-          Typescript, React and AWS. If you're interested in what I've been
-          working on take a look at my projects.
+          Typescript, React and AWS.
           <br />
           <br />
-          Outside of work I like to try every creative hobby there is! My
-          favourites are crocheting, sewing and oil painting. I also like having
-          an active social life and supporting my community.
+          Outside of work I like doing anything creative! My favourites are
+          crocheting, sewing and oil painting. I also like having an active
+          social life and supporting my community.
         </Typography.Paragraph>
       </Flex>
     </Flex>

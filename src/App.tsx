@@ -1,18 +1,23 @@
 import React from "react";
-import { Anchor, Col, Flex, Row, Image } from "antd";
+import { Anchor, Col, Flex, Row, Typography } from "antd";
 import { Home } from "./sections/Home";
 import "./style.css";
 import { About } from "./sections/About";
+import { Technology } from "./sections/Technology";
+import { FaStar } from "react-icons/fa6";
+import { Resume } from "./sections/Resume";
+import { Contact } from "./sections/Contact";
 
 const App = () => {
   return (
     <Row>
-      <Col span={2} style={{ backgroundColor: "#1c1530", marginTop: "20px" }}>
-        <Flex justify="center">
-          <Image src="/logo.svg" />
+      <Col span={3} style={{ backgroundColor: "#1c1530", marginTop: "20px" }}>
+        <Flex justify="center" style={{ paddingTop: "20px" }}>
+          <Typography.Paragraph>lottie.website</Typography.Paragraph>
+          <FaStar color="#c770f0" />
         </Flex>
         <Anchor
-          style={{ marginTop: "20px" }}
+          style={{ paddingTop: "20px" }}
           items={[
             {
               key: "home",
@@ -30,9 +35,9 @@ const App = () => {
               title: "technology",
             },
             {
-              key: "projects",
-              href: "#projects",
-              title: "projects",
+              key: "resume",
+              href: "#resume",
+              title: "resume",
             },
             {
               key: "contact",
@@ -42,40 +47,42 @@ const App = () => {
           ]}
         />
       </Col>
-      <Col span={22}>
-        <Flex id="home" vertical style={{ minHeight: "100vh", width: "100%" }}>
+      <Col span={21}>
+        <Flex
+          id="home"
+          vertical
+          style={{ minHeight: "100vh", width: "100%", overflow: "hidden" }}
+        >
           <Home />
         </Flex>
-        <Flex id="about" vertical style={{ minHeight: "100vh", width: "100%" }}>
+        <Flex
+          id="about"
+          vertical
+          style={{ minHeight: "100vh", width: "100%", overflow: "hidden" }}
+        >
           <About />
         </Flex>
-        <div
+        <Flex
           id="technology"
-          style={{
-            minHeight: "100vh",
-            width: "100%",
-          }}
+          vertical
+          style={{ minHeight: "100vh", width: "100%", overflow: "hidden" }}
         >
-          technology
-        </div>
-        <div
-          id="projects"
-          style={{
-            minHeight: "100vh",
-            width: "100%",
-          }}
+          <Technology />
+        </Flex>
+        <Flex
+          id="resume"
+          vertical
+          style={{ minHeight: "100vh", width: "100%", overflow: "hidden" }}
         >
-          projects
-        </div>
-        <div
+          <Resume />
+        </Flex>
+        <Flex
           id="contact"
-          style={{
-            minHeight: "100vh",
-            width: "100%",
-          }}
+          vertical
+          style={{ minHeight: "100vh", width: "100%", overflow: "hidden" }}
         >
-          contact
-        </div>
+          <Contact />
+        </Flex>
       </Col>
     </Row>
   );
