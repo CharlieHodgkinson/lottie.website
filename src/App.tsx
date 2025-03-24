@@ -2,6 +2,7 @@ import React from "react";
 import { Anchor, Col, Flex, Row, Image } from "antd";
 import { Home } from "./sections/Home";
 import "./style.css";
+import { About } from "./sections/About";
 
 const App = () => {
   return (
@@ -42,33 +43,12 @@ const App = () => {
         />
       </Col>
       <Col span={22}>
-        <Flex
-          id="home"
-          // align="left"
-          // justify="center"
-          vertical
-          style={{ minHeight: "100vh", width: "100%" }}
-        >
+        <Flex id="home" vertical style={{ minHeight: "100vh", width: "100%" }}>
           <Home />
         </Flex>
-        {/* <div
-          id="home"
-          style={{
-            minHeight: "100vh",
-            width: "100%",
-          }}
-        >
-          <Home />
-        </div> */}
-        <div
-          id="about"
-          style={{
-            minHeight: "100vh",
-            width: "100%",
-          }}
-        >
-          about
-        </div>
+        <Flex id="about" vertical style={{ minHeight: "100vh", width: "100%" }}>
+          <About />
+        </Flex>
         <div
           id="technology"
           style={{
