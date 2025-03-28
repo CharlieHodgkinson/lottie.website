@@ -6,6 +6,8 @@ import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 import "./main.css";
 import { ConfigProvider } from "antd";
+import { Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 Amplify.configure(outputs);
 
@@ -35,6 +37,28 @@ root.render(
         },
       }}
     >
+      <div
+        style={{
+          position: "fixed",
+          backgroundRepeat: "no-repeat !important",
+          backgroundSize: "cover !important",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Canvas className="canvas">
+          <ambientLight intensity={3} />
+          <Stars
+            radius={100}
+            depth={100}
+            count={8000}
+            factor={4}
+            saturation={0}
+            fade
+            speed={1}
+          />
+        </Canvas>
+      </div>
       <App />
     </ConfigProvider>
   </StrictMode>

@@ -39,11 +39,8 @@ export const RetroComputerModel = () => {
       }}
       style={{ width: "100%", height: "700px" }}
     >
-      <Canvas
-        // style={{ height: "500px", width: "700px" }}
-        camera={{ position: [0, 0, 15], fov: 30 }}
-      >
-        <ambientLight intensity={3} />
+      <Canvas camera={{ position: [0, 0, 15], fov: 30 }}>
+        <ambientLight intensity={1.5} />
         <Model url="/models/scene.gltf" />
         <OrbitControls enableZoom={false} />
       </Canvas>

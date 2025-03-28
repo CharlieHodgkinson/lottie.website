@@ -11,7 +11,13 @@ import { Contact } from "./sections/Contact";
 const App = () => {
   return (
     <Row>
-      <Col span={3} style={{ backgroundColor: "#1c1530", marginTop: "20px" }}>
+      <Col
+        span={3}
+        style={{
+          backgroundColor: "rgba(40, 30, 69, 0.3)",
+          paddingTop: "20px",
+        }}
+      >
         <Flex justify="center" style={{ paddingTop: "20px" }}>
           <Typography.Paragraph>lottie.website</Typography.Paragraph>
           <FaStar color="#c770f0" />
