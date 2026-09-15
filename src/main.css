@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&family=VT323&display=swap");
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Kodchasan", sans-serif !important;
+  font-family: "DM Mono", monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, #1b1429, #140f23);
-  background-color: #1b1429;
+  background: #f4adc8;
+  color: #321a2b;
 }
+* { box-sizing: border-box; }

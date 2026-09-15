@@ -1,5 +1,6 @@
-import { Flex, Typography, Tooltip } from "antd";
+import { Flex, Typography } from "antd";
 import { PropsWithChildren } from "react";
+import { Windows95Bar } from "../components/Windows95Bar";
 import { FaReact, FaNodeJs, FaNpm, FaAws } from "react-icons/fa";
 import {
   SiTypescript,
@@ -38,49 +39,31 @@ const technologies = [
 export const Technology = () => {
   return (
     <Flex
-      align="center"
-      justify="center"
+      className="file-picker-page"
+      align="stretch"
+      justify="flex-start"
       vertical
-      style={{ paddingLeft: "5rem", paddingRight: "5rem", flexGrow: 1 }}
+      style={{ flexGrow: 1 }}
       gap={50}
     >
-      <div style={{ width: "max-content" }}>
-        <Typography.Title
-          level={2}
-          style={{
-            backgroundColor: "#a545d1",
-            color: "white",
-            paddingLeft: "10px",
-            paddingRight: "10px",
-          }}
-        >
-          technology
-        </Typography.Title>
-      </div>
-      <Flex
-        align="center"
-        justify="center"
-        style={{ flexWrap: "wrap", paddingLeft: "5rem", paddingRight: "5rem" }}
-        gap={50}
-      >
-        {technologies.map(({ name, Icon }, i) => (
-          <Tooltip key={name + i} title={name} color="#a545d1">
-            <Icon color="white" size={80} />
-          </Tooltip>
-        ))}
-      </Flex>
-      <Flex
-        align="center"
-        justify="center"
-        style={{ flexWrap: "wrap", paddingLeft: "5rem", paddingRight: "5rem" }}
-        gap={50}
-      >
-        {["agile", "kanban", "DevOps", "CI/CD", "scrum", "TDD"].map(
-          (text, i) => (
-            <Badge key={i}>{text}</Badge>
-          )
-        )}
-      </Flex>
+      <Windows95Bar className="file-view-toolbar"><span>VIEW</span><strong>Large Icons</strong><span className="file-view-count">21 objects</span></Windows95Bar>
+      <section className="program-group">
+        <Windows95Bar className="program-group-title"><span>▣</span> DEVELOPMENT TOOLS</Windows95Bar>
+        <Flex align="flex-start" justify="flex-start" className="file-grid" style={{ flexWrap: "wrap" }} gap={50}>
+          {technologies.map(({ name, Icon }, i) => (
+            <div className="skill-file" key={name + i} title={name}>
+              <div className="skill-file-icon"><Icon className="technology-icon" size={42} /></div>
+              <Typography.Text>{name}</Typography.Text>
+            </div>
+          ))}
+        </Flex>
+      </section>
+      <section className="program-group methods-group">
+        <Windows95Bar className="program-group-title"><span>▤</span> WORK METHODS</Windows95Bar>
+        <Flex align="flex-start" justify="flex-start" className="practice-list" style={{ flexWrap: "wrap" }} gap={18}>
+          {["agile", "kanban", "DevOps", "CI/CD", "scrum", "TDD"].map((text) => <Badge key={text}>{text}</Badge>)}
+        </Flex>
+      </section>
     </Flex>
   );
 };
@@ -88,16 +71,7 @@ export const Technology = () => {
 const Badge = ({ children }: PropsWithChildren) => {
   return (
     <div style={{ width: "max-content" }}>
-      <Typography.Paragraph
-        style={{
-          backgroundColor: "#a545d1",
-          color: "white",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          borderRadius: "6px",
-          fontSize: "18px",
-        }}
-      >
+      <Typography.Paragraph className="skill-badge">
         {children}
       </Typography.Paragraph>
     </div>
