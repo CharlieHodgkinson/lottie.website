@@ -1,13 +1,8 @@
 import { StrictMode } from "react";
 import * as ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { Amplify } from "aws-amplify";
-// @ts-ignore
-import outputs from "../amplify_outputs.json";
 import "./main.css";
 import { ConfigProvider } from "antd";
-
-Amplify.configure(outputs);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

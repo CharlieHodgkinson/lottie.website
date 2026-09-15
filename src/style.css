@@ -258,12 +258,19 @@ button { font: inherit; }
 
 @media (max-width: 760px) {
   .desktop-shell { padding: 8px 8px 48px; }
-  .desktop-window { min-height: calc(100vh - 62px); }
+  .desktop-window { width: 100%; min-height: calc(100vh - 62px); }
   .system-sidebar { display: none; }
   .toolbar-location { display: none; }
   .window-body, .workspace { min-height: calc(100vh - 140px); }
   .section-content, .document-page { min-height: calc(100vh - 164px); }
   .document-page { padding: 20px !important; }
+  .home-explorer { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .home-copy { padding: 24px 18px; }
+  .home-preview { min-height: 0; padding: 16px 12px 20px; border-top: 1px solid var(--window-shadow); border-left: 0; }
+  .home-copy .ant-typography h1 { font-size: clamp(25px, 8vw, 34px); overflow-wrap: anywhere; }
+  .home-summary { max-width: none; }
+  .welcome-panel { align-items: flex-start; }
+  .home-properties { margin-bottom: 0; }
   .about-document, .about-sheet { grid-template-columns: 1fr; }
   .about-file-panel { order: 2; }
   .about-sheet { gap: 16px; padding: 14px; }
