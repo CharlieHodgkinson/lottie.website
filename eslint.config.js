@@ -14,13 +14,10 @@ const browserGlobals = Object.fromEntries(
 
 export default [
   { ignores: ['dist'] },
+  js.configs.recommended,
+  ...tseslint.configs.strict,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      react.configs.recommended,
-      tseslint.configs.strict,
-    ],
     languageOptions: {
       ecmaVersion: 2020,
       globals: browserGlobals,
@@ -42,6 +39,11 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'react/no-unescaped-entities': 'off',
+      'react/no-unknown-property': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
       'object-curly-newline': [
         'error',
         { multiline: true, consistent: true },

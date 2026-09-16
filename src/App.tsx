@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Typography } from "antd";
 import { Home } from "./sections/Home";
 import styles from "./App.module.css";
 import { About } from "./sections/About";
@@ -45,7 +44,7 @@ const App = () => {
       {!isClosed && !isMinimized && (
         <div className={styles.desktopWindow + (isMaximized ? " " + styles.isMaximized : "")}>
           <header className={styles.windowHeader}>
-            <div className={styles.windowBrand}><span className={styles.brandMark}><FaStar /></span><Typography.Text>PORTFOLIO</Typography.Text></div>
+            <div className={styles.windowBrand}><span className={styles.brandMark}><FaStar /></span><span>PORTFOLIO</span></div>
             <div className={styles.windowControls}>
               <button aria-label="Minimize desktop" onClick={() => setIsMinimized(true)}><FaMinus /></button>
               <button aria-label={isMaximized ? "Restore desktop" : "Maximize desktop"} onClick={() => setIsMaximized(!isMaximized)}><FaRegSquare /></button>

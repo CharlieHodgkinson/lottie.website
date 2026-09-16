@@ -2,9 +2,6 @@
   min-height: 606px;
   padding: 18px !important;
   background: var(--paper);
-}
-
-.documentPage :global(.ant-typography) {
   line-height: 1.45;
 }
 
@@ -31,10 +28,29 @@
   padding: 32px 28px;
 }
 
-.homeCopy :global(.ant-typography h1) {
+.homeCopy h1 {
   max-width: 500px;
   margin: 0 0 24px;
   font-size: clamp(28px, 3.1vw, 38px);
+}
+
+.downloadButton {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 2px outset var(--window-gray);
+  border-radius: 0;
+  color: white;
+  background: var(--pink-title);
+  text-decoration: none;
+}
+
+.downloadButton:hover {
+  color: white;
+  background: var(--pink-select);
+}
+
+.downloadButton:active {
+  border-style: inset;
 }
 
 .fileTypeLabel,
@@ -160,7 +176,7 @@
     border-left: 0;
   }
 
-  .homeCopy :global(.ant-typography h1) {
+  .homeCopy h1 {
     font-size: clamp(25px, 8vw, 34px);
     overflow-wrap: anywhere;
   }
@@ -182,8 +198,4 @@
   }
 }
 
-@media (max-width: 520px) {
-  .homePage :global(.ant-row) {
-    padding-left: 0 !important;
-  }
-}
+@media (max-width: 520px) {}

@@ -1,4 +1,3 @@
-import { Button, Typography } from "antd";
 import styles from "./Home.module.css";
 
 export const Home = () => {
@@ -7,9 +6,9 @@ export const Home = () => {
       <div className={styles.homeExplorer}>
         <section className={styles.homeCopy}>
           <span className={styles.fileTypeLabel}>APPLICATION / WELCOME.EXE</span>
-          <Typography.Title level={1}>hey there!<br />i'm <b className={styles.purple}>Charlotte Hodgkinson</b></Typography.Title>
+          <h1>hey there!<br />i'm <b className={styles.purple}>Charlotte Hodgkinson</b></h1>
           <p className={styles.homeSummary}>Fullstack software engineer building useful things for the web.</p>
-          <Button type="primary" href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</Button>
+          <a className={styles.downloadButton} href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</a>
         </section>
         <section className={styles.homePreview}>
           <div className={styles.previewLabel}>SYSTEM INFORMATION</div>

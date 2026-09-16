@@ -72,7 +72,7 @@
     font-weight: bold;
 }
 
-.contactField :global(.ant-typography-link) {
+.contactField a {
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -80,7 +80,7 @@
     text-decoration: underline;
 }
 
-.contactField :global(.ant-typography-link):hover {
+.contactField a:hover {
     color: var(--pink-title);
 }
 

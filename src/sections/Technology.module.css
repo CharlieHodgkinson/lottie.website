@@ -1,7 +1,10 @@
 .filePickerPage {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
     align-items: stretch !important;
     justify-content: flex-start !important;
-    gap: 24px !important;
+    gap: 24px;
     padding: 24px !important;
 }
 
@@ -50,7 +53,7 @@
 .fileGrid {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 12px !important;
+    gap: 50px 12px;
     width: 100%;
     padding: 16px !important;
     align-items: start;
@@ -61,6 +64,9 @@
 }
 
 .practiceList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
     width: 100%;
     padding: 14px 16px !important;
     border-top: 0;
@@ -94,7 +100,7 @@
     background: var(--pink-highlight);
 }
 
-.skillFile :global(.ant-typography) {
+.skillFile>span {
     font-size: 10px;
     line-height: 1.15;
 }

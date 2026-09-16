@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Typography } from "antd";
 import styles from "./Resume.module.css";
 
 type ResumeRecord = {
@@ -89,7 +88,7 @@ export const Resume = () => {
         <article className={styles.resumeDetails}>
           <div className={styles.resumeDetailsBar}><span>PREVIEW</span><span>{selected.role.toUpperCase()}</span></div>
           <div className={styles.resumeDetailsBody}>
-            <Typography.Title level={2}>{selected.role}</Typography.Title>
+            <h2>{selected.role}</h2>
             <div className={styles.resumeMeta}><span>{selected.company}</span><span>{selected.date}</span></div>
             <p>{selected.description}</p>
             {selected.bullets && <ul>{selected.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}

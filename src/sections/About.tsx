@@ -1,4 +1,3 @@
-import { Flex, Typography, Image } from "antd";
 import styles from "./About.module.css";
 
 export const About = () => {
@@ -15,21 +14,21 @@ export const About = () => {
         <article className={styles.aboutSheet}>
           <div className={styles.aboutPortrait}>
             <div className={styles.aboutAccent} />
-            <Image src="/profile.jpg" width={260} preview />
+            <img className={styles.aboutImage} src="/profile.jpg" width={260} alt="Charlotte Hodgkinson" />
             <span>CHARLOTTE.JPG</span>
           </div>
           <div className={styles.aboutCopy}>
-            <Typography.Title level={2} className={styles.aboutSheetTitle}>About Charlotte</Typography.Title>
-            <Typography.Paragraph>
+            <h2 className={styles.aboutSheetTitle}>About Charlotte</h2>
+            <p>
               Hi, I'm Charlotte. I currently live in London working as a fullstack
               software engineer at Wealth Wizards, where I build web apps with
               Typescript, React and AWS.
-            </Typography.Paragraph>
-            <Typography.Paragraph>
+            </p>
+            <p>
               Outside of work I like doing anything creative. My favourites are
               crocheting, sewing and oil painting. I also like having an active
               social life and supporting my community.
-            </Typography.Paragraph>
+            </p>
           </div>
         </article>
       </div>

@@ -17,7 +17,10 @@
   --mint: #a7cdbf;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-size: 13px;
@@ -28,21 +31,31 @@ body {
   color: var(--ink);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body, #root { min-width: 320px; min-height: 100%; }
-button { font: inherit; }
-.ant-typography, .ant-typography h1, .ant-typography h2, .ant-typography h3 { color: var(--ink); }
-.ant-typography h1, .ant-typography h2, .ant-typography h3 { font-family: Tahoma, Arial, sans-serif; font-weight: bold; }
-.ant-typography h1 { font-size: 36px; line-height: 1.05; }
-.ant-typography h2 { font-size: 24px; }
-.ant-typography h3 { font-size: 18px; }
-.ant-btn-primary { border: 2px outset var(--window-gray); border-radius: 0; color: white; background: var(--pink-title); box-shadow: none; }
-.ant-btn-primary:hover { color: white !important; background: var(--pink-select) !important; }
-.ant-btn-primary:active { border-style: inset; }
-.ant-timeline-item-tail { border-inline-start-color: var(--pink-title) !important; }
-.ant-timeline-item-head { background: var(--paper); }
-.ant-typography a { color: var(--pink-select); text-decoration: underline; }
-::-webkit-scrollbar { width: 16px; height: 16px; }
-::-webkit-scrollbar-track { background: var(--window-gray); }
-::-webkit-scrollbar-thumb { border: 2px outset var(--window-gray); background: var(--window-gray); }
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--window-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px outset var(--window-gray);
+  background: var(--window-gray);
+}
