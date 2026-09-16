@@ -1,0 +1,113 @@
+.filePickerPage {
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 24px !important;
+    padding: 24px !important;
+}
+
+.fileViewToolbar {
+    color: var(--muted-ink);
+    background: var(--window-gray);
+    font-size: 10px;
+}
+
+.fileViewToolbar strong {
+    padding: 3px 8px;
+    border: 1px solid var(--window-shadow);
+    color: var(--ink);
+    background: white;
+    font-weight: normal;
+}
+
+.fileViewCount {
+    margin-left: auto;
+    color: var(--pink-title);
+}
+
+.programGroup {
+    border: 2px solid var(--window-shadow);
+    border-top-color: var(--window-deep);
+    border-left-color: var(--window-deep);
+    border-right-color: var(--window-light);
+    border-bottom-color: var(--window-light);
+    outline: 1px solid var(--window-deep);
+    outline-offset: -1px;
+    background: white;
+}
+
+.programGroupTitle {
+    min-height: 27px;
+    color: white;
+    background: var(--pink-title);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.programGroupTitle span {
+    color: var(--pink-highlight);
+}
+
+.fileGrid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px !important;
+    width: 100%;
+    padding: 16px !important;
+    align-items: start;
+}
+
+.methodsGroup {
+    margin-top: 4px;
+}
+
+.practiceList {
+    width: 100%;
+    padding: 14px 16px !important;
+    border-top: 0;
+}
+
+.skillFile {
+    display: flex;
+    min-height: 116px;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+    padding: 10px 6px;
+    border: 1px solid transparent;
+    color: var(--ink);
+    text-align: center;
+    cursor: default;
+}
+
+.skillFile:hover {
+    border-color: var(--pink-select);
+    background: var(--pink-highlight);
+}
+
+.skillFileIcon {
+    display: grid;
+    width: 64px;
+    height: 54px;
+    place-items: center;
+    border: 2px outset var(--window-gray);
+    color: var(--pink-title);
+    background: var(--pink-highlight);
+}
+
+.skillFile :global(.ant-typography) {
+    font-size: 10px;
+    line-height: 1.15;
+}
+
+.skillBadge {
+    margin: 0;
+    padding: 5px 10px;
+    border: 2px outset var(--window-gray);
+    color: var(--ink) !important;
+    background: var(--pink-highlight);
+    font-size: 12px;
+}
+
+.technologyIcon {
+    color: var(--pink-title);
+}

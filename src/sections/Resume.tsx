@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Typography } from "antd";
+import styles from "./Resume.module.css";
 
 type ResumeRecord = {
   date: string;
@@ -68,28 +69,28 @@ export const Resume = () => {
   const selected = records[selectedIndex];
 
   return (
-    <div className="resume-explorer">
-      <div className="resume-actions">
+    <div className={styles.resumeExplorer}>
+      <div className={styles.resumeActions}>
         <span>{records.length} objects</span>
-        <span className="resume-sort">Name &nbsp; | &nbsp; Date modified &nbsp; | &nbsp; Type</span>
-        <a className="resume-download" href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</a>
+        <span className={styles.resumeSort}>Name &nbsp; | &nbsp; Date modified &nbsp; | &nbsp; Type</span>
+        <a className={styles.resumeDownload} href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</a>
       </div>
-      <div className="resume-browser">
-        <section className="resume-record-list" aria-label="Career records">
-          <div className="resume-list-head"><span>DATE</span><span>NAME</span><span>TYPE</span></div>
+      <div className={styles.resumeBrowser}>
+        <section className={styles.resumeRecordList} aria-label="Career records">
+          <div className={styles.resumeListHead}><span>DATE</span><span>NAME</span><span>TYPE</span></div>
           {records.map((record, index) => (
-            <button className={`resume-record ${selectedIndex === index ? "is-selected" : ""}`} onClick={() => setSelectedIndex(index)} key={`${record.date}-${record.role}`}>
+            <button className={`${styles.resumeRecord} ${selectedIndex === index ? styles.isSelected : ""}`} onClick={() => setSelectedIndex(index)} key={`${record.date}-${record.role}`}>
               <span>{record.date}</span>
               <span><b>{record.role}</b><small>{record.company}</small></span>
               <span>{record.date === "Education" || record.date === "Apprenticeship" ? "EDU" : "WORK"}</span>
             </button>
           ))}
         </section>
-        <article className="resume-details">
-          <div className="resume-details-bar"><span>PREVIEW</span><span>{selected.role.toUpperCase()}</span></div>
-          <div className="resume-details-body">
+        <article className={styles.resumeDetails}>
+          <div className={styles.resumeDetailsBar}><span>PREVIEW</span><span>{selected.role.toUpperCase()}</span></div>
+          <div className={styles.resumeDetailsBody}>
             <Typography.Title level={2}>{selected.role}</Typography.Title>
-            <div className="resume-meta"><span>{selected.company}</span><span>{selected.date}</span></div>
+            <div className={styles.resumeMeta}><span>{selected.company}</span><span>{selected.date}</span></div>
             <p>{selected.description}</p>
             {selected.bullets && <ul>{selected.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
           </div>

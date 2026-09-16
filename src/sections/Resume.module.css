@@ -1,0 +1,225 @@
+.resumeExplorer {
+    min-height: 606px;
+    padding: 18px;
+    background: var(--paper);
+}
+
+.resumeActions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 30px;
+    padding: 4px 7px;
+    border: 2px solid var(--window-shadow);
+    border-top-color: var(--window-deep);
+    border-left-color: var(--window-deep);
+    border-right-color: var(--window-light);
+    border-bottom-color: var(--window-light);
+    outline: 1px solid var(--window-deep);
+    outline-offset: -1px;
+    color: var(--muted-ink);
+    background: var(--window-gray);
+    font-size: 10px;
+}
+
+.resumeSort {
+    margin-left: auto;
+    color: var(--pink-title);
+}
+
+.resumeDownload {
+    padding: 7px 10px;
+    border: 2px outset var(--window-gray);
+    color: var(--ink);
+    background: var(--window-gray);
+    font-size: 11px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.resumeDownload:hover {
+    color: white;
+    background: var(--pink-select);
+}
+
+.resumeBrowser {
+    display: grid;
+    grid-template-columns: minmax(310px, 46%) minmax(0, 1fr);
+    min-height: 480px;
+    margin-top: 12px;
+    border: 2px solid var(--window-shadow);
+    border-top-color: var(--window-deep);
+    border-left-color: var(--window-deep);
+    border-right-color: var(--window-light);
+    border-bottom-color: var(--window-light);
+    outline: 1px solid var(--window-deep);
+    outline-offset: -1px;
+    background: white;
+}
+
+.resumeRecordList {
+    min-width: 0;
+    border-right: 1px solid var(--window-shadow);
+}
+
+.resumeListHead,
+.resumeRecord {
+    display: grid;
+    grid-template-columns: 98px minmax(0, 1fr) 48px;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+}
+
+.resumeListHead {
+    min-height: 28px;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--window-shadow);
+    color: var(--muted-ink);
+    background: var(--window-gray);
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.resumeRecord {
+    min-height: 52px;
+    padding: 6px 8px;
+    border: 0;
+    border-bottom: 1px solid #d7d7d7;
+    color: var(--ink);
+    background: white;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.resumeRecord:hover {
+    background: var(--pink-highlight);
+}
+
+.resumeRecord.isSelected {
+    color: white;
+    background: var(--pink-select);
+}
+
+.resumeRecord>span:first-child {
+    color: var(--pink-title);
+}
+
+.resumeRecord.isSelected>span:first-child {
+    color: var(--pink-highlight);
+}
+
+.resumeRecord b,
+.resumeRecord small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resumeRecord b {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.resumeRecord small {
+    margin-top: 3px;
+    color: var(--muted-ink);
+    font-size: 9px;
+}
+
+.resumeRecord.isSelected small {
+    color: var(--pink-highlight);
+}
+
+.resumeRecord>span:last-child {
+    font-size: 9px;
+}
+
+.resumeDetails {
+    min-width: 0;
+    background: var(--paper);
+}
+
+.resumeDetailsBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 28px;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--window-shadow);
+    color: white;
+    background: var(--pink-title);
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.resumeDetailsBar span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resumeDetailsBody {
+    padding: 22px;
+    color: var(--ink);
+}
+
+.resumeDetailsBody h2 {
+    margin: 0 0 10px;
+    color: var(--pink-title);
+    font-size: 21px;
+}
+
+.resumeMeta {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--window-shadow);
+    color: var(--muted-ink);
+    font-size: 10px;
+}
+
+.resumeDetailsBody p,
+.resumeDetailsBody li {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.resumeDetailsBody ul {
+    padding-left: 18px;
+}
+
+@media (max-width: 760px) {
+    .resumeExplorer {
+        padding: 12px;
+    }
+
+    .resumeActions {
+        flex-wrap: wrap;
+    }
+
+    .resumeSort {
+        display: none;
+    }
+
+    .resumeBrowser {
+        grid-template-columns: 1fr;
+    }
+
+    .resumeRecordList {
+        border-right: 0;
+        border-bottom: 1px solid var(--window-shadow);
+    }
+
+    .resumeDetailsBody {
+        padding: 16px;
+    }
+
+    .resumeListHead {
+        grid-template-columns: 82px 1fr;
+    }
+}

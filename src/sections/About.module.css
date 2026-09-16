@@ -1,0 +1,143 @@
+.documentPage {
+    min-height: 606px;
+    padding: 18px !important;
+    background: var(--paper);
+}
+
+.aboutPage {
+    padding: 18px !important;
+}
+
+.aboutDocument {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 22px;
+    min-height: 500px;
+}
+
+.aboutFilePanel {
+    align-self: start;
+    border: 2px solid var(--window-shadow);
+    border-top-color: var(--window-deep);
+    border-left-color: var(--window-deep);
+    border-right-color: var(--window-light);
+    border-bottom-color: var(--window-light);
+    outline: 1px solid var(--window-deep);
+    outline-offset: -1px;
+    background: var(--window-gray);
+}
+
+.filePanelHeading {
+    padding: 6px 8px;
+    color: white;
+    background: var(--pink-title);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.fileDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 8px;
+    border-bottom: 1px solid var(--window-shadow);
+    font-size: 10px;
+}
+
+.fileDetail span {
+    color: var(--muted-ink);
+    font-size: 9px;
+}
+
+.fileDetail strong {
+    font-weight: normal;
+    overflow-wrap: anywhere;
+}
+
+.aboutSheet {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    padding: 22px;
+    border: 2px solid var(--window-shadow);
+    border-top-color: var(--window-deep);
+    border-left-color: var(--window-deep);
+    border-right-color: var(--window-light);
+    border-bottom-color: var(--window-light);
+    outline: 1px solid var(--window-deep);
+    outline-offset: -1px;
+    background: white;
+}
+
+.aboutPortrait {
+    position: relative;
+    display: flex;
+    width: 270px;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted-ink);
+    font-size: 10px;
+}
+
+.aboutPortrait :global(.ant-image) {
+    position: relative;
+    z-index: 1;
+    border: 3px outset var(--window-gray);
+    padding: 5px;
+    background: var(--window-gray);
+}
+
+.aboutPortrait :global(.ant-image-img) {
+    display: block;
+}
+
+.aboutAccent {
+    position: absolute;
+    z-index: 0;
+    top: 34px;
+    left: 20px;
+    width: 250px;
+    height: 330px;
+    margin: 0;
+    background: var(--mint);
+}
+
+.aboutCopy {
+    padding-top: 8px;
+}
+
+.aboutSheetTitle {
+    margin: 0 0 16px !important;
+    color: var(--pink-title) !important;
+    font-size: 22px !important;
+}
+
+@media (max-width: 760px) {
+    .documentPage {
+        min-height: calc(100vh - 164px);
+    }
+
+    .aboutDocument,
+    .aboutSheet {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutFilePanel {
+        order: 2;
+    }
+
+    .aboutSheet {
+        gap: 16px;
+        padding: 14px;
+    }
+
+    .aboutPortrait {
+        width: 100%;
+    }
+
+    .aboutAccent {
+        left: calc(50% - 125px);
+    }
+}

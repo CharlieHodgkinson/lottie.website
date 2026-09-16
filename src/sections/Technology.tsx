@@ -16,6 +16,7 @@ import {
   SiGithub,
   SiGitlab,
 } from "react-icons/si";
+import styles from "./Technology.module.css";
 
 const technologies = [
   { name: "React JS", Icon: FaReact },
@@ -39,28 +40,28 @@ const technologies = [
 export const Technology = () => {
   return (
     <Flex
-      className="file-picker-page"
+      className={styles.filePickerPage}
       align="stretch"
       justify="flex-start"
       vertical
       style={{ flexGrow: 1 }}
       gap={50}
     >
-      <Windows95Bar className="file-view-toolbar"><span>VIEW</span><strong>Large Icons</strong><span className="file-view-count">21 objects</span></Windows95Bar>
-      <section className="program-group">
-        <Windows95Bar className="program-group-title"><span>▣</span> DEVELOPMENT TOOLS</Windows95Bar>
-        <Flex align="flex-start" justify="flex-start" className="file-grid" style={{ flexWrap: "wrap" }} gap={50}>
+      <Windows95Bar className={styles.fileViewToolbar}><span>VIEW</span><strong>Large Icons</strong><span className={styles.fileViewCount}>21 objects</span></Windows95Bar>
+      <section className={styles.programGroup}>
+        <Windows95Bar className={styles.programGroupTitle}><span>▣</span> DEVELOPMENT TOOLS</Windows95Bar>
+        <Flex align="flex-start" justify="flex-start" className={styles.fileGrid} style={{ flexWrap: "wrap" }} gap={50}>
           {technologies.map(({ name, Icon }, i) => (
-            <div className="skill-file" key={name + i} title={name}>
-              <div className="skill-file-icon"><Icon className="technology-icon" size={42} /></div>
+            <div className={styles.skillFile} key={name + i} title={name}>
+              <div className={styles.skillFileIcon}><Icon className={styles.technologyIcon} size={42} /></div>
               <Typography.Text>{name}</Typography.Text>
             </div>
           ))}
         </Flex>
       </section>
-      <section className="program-group methods-group">
-        <Windows95Bar className="program-group-title"><span>▤</span> WORK METHODS</Windows95Bar>
-        <Flex align="flex-start" justify="flex-start" className="practice-list" style={{ flexWrap: "wrap" }} gap={18}>
+      <section className={`${styles.programGroup} ${styles.methodsGroup}`}>
+        <Windows95Bar className={styles.programGroupTitle}><span>▤</span> WORK METHODS</Windows95Bar>
+        <Flex align="flex-start" justify="flex-start" className={styles.practiceList} style={{ flexWrap: "wrap" }} gap={18}>
           {["agile", "kanban", "DevOps", "CI/CD", "scrum", "TDD"].map((text) => <Badge key={text}>{text}</Badge>)}
         </Flex>
       </section>
@@ -71,7 +72,7 @@ export const Technology = () => {
 const Badge = ({ children }: PropsWithChildren) => {
   return (
     <div style={{ width: "max-content" }}>
-      <Typography.Paragraph className="skill-badge">
+      <Typography.Paragraph className={styles.skillBadge}>
         {children}
       </Typography.Paragraph>
     </div>

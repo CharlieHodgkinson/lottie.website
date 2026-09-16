@@ -1,0 +1,12 @@
+.windows95Bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 28px;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--window-shadow);
+  color: white;
+  background: var(--pink-title-inactive);
+  font-size: 11px;
+  font-weight: bold;
+}

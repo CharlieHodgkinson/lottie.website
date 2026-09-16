@@ -1,24 +1,25 @@
 import { Flex, Typography, Image } from "antd";
+import styles from "./About.module.css";
 
 export const About = () => {
   return (
-    <div className="document-page about-page">
-      <div className="about-document">
-        <aside className="about-file-panel">
-          <div className="file-panel-heading">FILE DETAILS</div>
-          <div className="file-detail"><span>NAME</span><strong>Charlotte</strong></div>
-          <div className="file-detail"><span>LOCATION</span><strong>C:\LOTTIE</strong></div>
-          <div className="file-detail"><span>ROLE</span><strong>Software Engineer</strong></div>
-          <div className="file-detail"><span>STATUS</span><strong>Available</strong></div>
+    <div className={`${styles.documentPage} ${styles.aboutPage}`}>
+      <div className={styles.aboutDocument}>
+        <aside className={styles.aboutFilePanel}>
+          <div className={styles.filePanelHeading}>FILE DETAILS</div>
+          <div className={styles.fileDetail}><span>NAME</span><strong>Charlotte</strong></div>
+          <div className={styles.fileDetail}><span>LOCATION</span><strong>C:\LOTTIE</strong></div>
+          <div className={styles.fileDetail}><span>ROLE</span><strong>Software Engineer</strong></div>
+          <div className={styles.fileDetail}><span>STATUS</span><strong>Available</strong></div>
         </aside>
-        <article className="about-sheet">
-          <div className="about-portrait">
-            <div className="about-accent" />
+        <article className={styles.aboutSheet}>
+          <div className={styles.aboutPortrait}>
+            <div className={styles.aboutAccent} />
             <Image src="/profile.jpg" width={260} preview />
             <span>CHARLOTTE.JPG</span>
           </div>
-          <div className="about-copy">
-            <Typography.Title level={2} className="about-sheet-title">About Charlotte</Typography.Title>
+          <div className={styles.aboutCopy}>
+            <Typography.Title level={2} className={styles.aboutSheetTitle}>About Charlotte</Typography.Title>
             <Typography.Paragraph>
               Hi, I'm Charlotte. I currently live in London working as a fullstack
               software engineer at Wealth Wizards, where I build web apps with

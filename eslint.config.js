@@ -3,14 +3,27 @@ import globals from 'globals'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+
+const browserGlobals = Object.fromEntries(
+  Object.entries(globals.browser).map(([name, value]) => [
+    name.trim(),
+    value,
+  ]),
+)
 
 export default [
   { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      react.configs.recommended,
+      tseslint.configs.strict,
+    ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: browserGlobals,
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -29,6 +42,10 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'object-curly-newline': [
+        'error',
+        { multiline: true, consistent: true },
+      ],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
