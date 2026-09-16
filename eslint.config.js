@@ -48,6 +48,25 @@ export default [
         'error',
         { multiline: true, consistent: true },
       ],
+      'max-len': [
+        'error',
+        {
+          code: 100,
+          ignoreComments: true,
+          ignoreStrings: true,
+          ignoreUrls: true,
+          ignoreTemplateLiterals: true,
+        },
+      ],
+      'react/jsx-first-prop-new-line': ['error', 'multiline'],
+      'react/jsx-max-props-per-line': [
+        'error',
+        { maximum: 1, when: 'multiline' },
+      ],
+      'react/jsx-closing-bracket-location': [
+        'error',
+        { nonEmpty: 'line-aligned', selfClosing: 'line-aligned' },
+      ],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

@@ -44,7 +44,10 @@ const App = () => {
       {!isClosed && !isMinimized && (
         <div className={styles.desktopWindow + (isMaximized ? " " + styles.isMaximized : "")}>
           <header className={styles.windowHeader}>
-            <div className={styles.windowBrand}><span className={styles.brandMark}><FaStar /></span><span>PORTFOLIO</span></div>
+            <div className={styles.windowBrand}>
+              <span className={styles.brandMark}><FaStar /></span>
+              <span>PORTFOLIO</span>
+            </div>
             <div className={styles.windowControls}>
               <button aria-label="Minimize desktop" onClick={() => setIsMinimized(true)}><FaMinus /></button>
               <button aria-label={isMaximized ? "Restore desktop" : "Maximize desktop"} onClick={() => setIsMaximized(!isMaximized)}><FaRegSquare /></button>
@@ -62,19 +65,51 @@ const App = () => {
               <div className={styles.sidebarLabel}>MY COMPUTER</div>
               <button className={styles.computerIcon} onClick={() => openSection("home")}><span>▣</span><small>C:\LOTTIE</small></button>
               <div className={`${styles.sidebarLabel} ${styles.folderLabel}`}>PROGRAMS</div>
-              {tabs.slice(1).map((tab) => <button className={`${styles.sidebarItem} ${activeTab === tab.id ? styles.isActive : ""}`} onClick={() => openSection(tab.id)} key={tab.id}><span className={styles.sidebarIcon}>{tab.icon}</span><span>{tab.id}.exe</span></button>)}
-              <div className={styles.sidebarStatus}><span className={styles.statusLight} /><span>system online</span></div>
+              {tabs.slice(1).map((tab) => (
+                <button
+                  className={`${styles.sidebarItem} ${activeTab === tab.id ? styles.isActive : ""}`}
+                  onClick={() => openSection(tab.id)}
+                  key={tab.id}
+                >
+                  <span className={styles.sidebarIcon}>{tab.icon}</span>
+                  <span>{tab.id}.exe</span>
+                </button>
+              ))}
+              <div className={styles.sidebarStatus}>
+                <span className={styles.statusLight} />
+                <span>system online</span>
+              </div>
             </aside>
             <div className={styles.workspace}>
-              <Windows95Bar className={styles.sectionTitlebar}><span className={styles.titlebarGlyph}>◆</span><span>{activeSection.title}</span><span className={styles.titlebarPath}>C:\\LOTTIE\\{activeSection.id.toUpperCase()}</span></Windows95Bar>
+              <Windows95Bar className={styles.sectionTitlebar}>
+                <span className={styles.titlebarGlyph}>◆</span>
+                <span>{activeSection.title}</span>
+                <span className={styles.titlebarPath}>
+                  C:\\LOTTIE\\{activeSection.id.toUpperCase()}
+                </span>
+              </Windows95Bar>
               <div className={styles.sectionContent}>{activeSection.component}</div>
             </div>
           </div>
-          <footer className={styles.windowFooter}><span>5 OBJECTS &nbsp; | &nbsp; 1 SELECTED</span><span>READY &nbsp; | &nbsp; NETWORK: CONNECTED</span></footer>
+          <footer className={styles.windowFooter}>
+            <span>5 OBJECTS &nbsp; | &nbsp; 1 SELECTED</span>
+            <span>READY &nbsp; | &nbsp; NETWORK: CONNECTED</span>
+          </footer>
         </div>
       )}
 
-      {(isClosed || isMinimized) && <button className={styles.desktopShortcut} onClick={() => { setIsClosed(false); setIsMinimized(false); }}><FaFolder /><span>Charlotte's<br />Desktop</span></button>}
+      {(isClosed || isMinimized) && (
+        <button
+          className={styles.desktopShortcut}
+          onClick={() => {
+            setIsClosed(false);
+            setIsMinimized(false);
+          }}
+        >
+          <FaFolder />
+          <span>Charlotte's<br />Desktop</span>
+        </button>
+      )}
 
       {isStartOpen && <div className={styles.startMenu}>
         <div className={styles.startMenuBanner}><strong>Windows</strong><span>95</span></div>
@@ -84,8 +119,23 @@ const App = () => {
       </div>}
 
       <footer className={styles.taskbar}>
-        <button className={styles.startButton} onClick={() => setIsStartOpen(!isStartOpen)}><FaStar /> Start</button>
-        {!isClosed && <button className={`${styles.taskbarApp} ${!isMinimized ? styles.isActive : ""}`} onClick={() => { setIsMinimized(!isMinimized); setIsClosed(false); }}><FaFolder /> Charlotte's Desktop</button>}
+        <button
+          className={styles.startButton}
+          onClick={() => setIsStartOpen(!isStartOpen)}
+        >
+          <FaStar /> Start
+        </button>
+        {!isClosed && (
+          <button
+            className={`${styles.taskbarApp} ${!isMinimized ? styles.isActive : ""}`}
+            onClick={() => {
+              setIsMinimized(!isMinimized);
+              setIsClosed(false);
+            }}
+          >
+            <FaFolder /> Charlotte's Desktop
+          </button>
+        )}
         <span className={styles.taskbarClock}>{new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>
       </footer>
     </main>

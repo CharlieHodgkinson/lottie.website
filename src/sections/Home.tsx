@@ -6,9 +6,20 @@ export const Home = () => {
       <div className={styles.homeExplorer}>
         <section className={styles.homeCopy}>
           <span className={styles.fileTypeLabel}>APPLICATION / WELCOME.EXE</span>
-          <h1>hey there!<br />i'm <b className={styles.purple}>Charlotte Hodgkinson</b></h1>
-          <p className={styles.homeSummary}>Fullstack software engineer building useful things for the web.</p>
-          <a className={styles.downloadButton} href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</a>
+          <h1>
+            hey there!<br />
+            i'm <b className={styles.purple}>Charlotte Hodgkinson</b>
+          </h1>
+          <p className={styles.homeSummary}>
+            Fullstack software engineer building useful things for the web.
+          </p>
+          <a
+            className={styles.downloadButton}
+            href="cv.pdf"
+            download="charlotte_hodgkinson_cv.pdf"
+          >
+            Download CV
+          </a>
         </section>
         <section className={styles.homePreview}>
           <div className={styles.previewLabel}>SYSTEM INFORMATION</div>

@@ -7,8 +7,14 @@ export const About = () => {
         <aside className={styles.aboutFilePanel}>
           <div className={styles.filePanelHeading}>FILE DETAILS</div>
           <div className={styles.fileDetail}><span>NAME</span><strong>Charlotte</strong></div>
-          <div className={styles.fileDetail}><span>LOCATION</span><strong>C:\LOTTIE</strong></div>
-          <div className={styles.fileDetail}><span>ROLE</span><strong>Software Engineer</strong></div>
+          <div className={styles.fileDetail}>
+            <span>LOCATION</span>
+            <strong>C:\LOTTIE</strong>
+          </div>
+          <div className={styles.fileDetail}>
+            <span>ROLE</span>
+            <strong>Software Engineer</strong>
+          </div>
           <div className={styles.fileDetail}><span>STATUS</span><strong>Available</strong></div>
         </aside>
         <article className={styles.aboutSheet}>

@@ -71,14 +71,30 @@ export const Resume = () => {
     <div className={styles.resumeExplorer}>
       <div className={styles.resumeActions}>
         <span>{records.length} objects</span>
-        <span className={styles.resumeSort}>Name &nbsp; | &nbsp; Date modified &nbsp; | &nbsp; Type</span>
-        <a className={styles.resumeDownload} href="cv.pdf" download="charlotte_hodgkinson_cv.pdf">Download CV</a>
+        <span className={styles.resumeSort}>
+          Name &nbsp; | &nbsp; Date modified &nbsp; | &nbsp; Type
+        </span>
+        <a
+          className={styles.resumeDownload}
+          href="cv.pdf"
+          download="charlotte_hodgkinson_cv.pdf"
+        >
+          Download CV
+        </a>
       </div>
       <div className={styles.resumeBrowser}>
         <section className={styles.resumeRecordList} aria-label="Career records">
-          <div className={styles.resumeListHead}><span>DATE</span><span>NAME</span><span>TYPE</span></div>
+          <div className={styles.resumeListHead}>
+            <span>DATE</span>
+            <span>NAME</span>
+            <span>TYPE</span>
+          </div>
           {records.map((record, index) => (
-            <button className={`${styles.resumeRecord} ${selectedIndex === index ? styles.isSelected : ""}`} onClick={() => setSelectedIndex(index)} key={`${record.date}-${record.role}`}>
+            <button
+              className={`${styles.resumeRecord} ${selectedIndex === index ? styles.isSelected : ""}`}
+              onClick={() => setSelectedIndex(index)}
+              key={`${record.date}-${record.role}`}
+            >
               <span>{record.date}</span>
               <span><b>{record.role}</b><small>{record.company}</small></span>
               <span>{record.date === "Education" || record.date === "Apprenticeship" ? "EDU" : "WORK"}</span>
@@ -86,12 +102,24 @@ export const Resume = () => {
           ))}
         </section>
         <article className={styles.resumeDetails}>
-          <div className={styles.resumeDetailsBar}><span>PREVIEW</span><span>{selected.role.toUpperCase()}</span></div>
+          <div className={styles.resumeDetailsBar}>
+            <span>PREVIEW</span>
+            <span>{selected.role.toUpperCase()}</span>
+          </div>
           <div className={styles.resumeDetailsBody}>
             <h2>{selected.role}</h2>
-            <div className={styles.resumeMeta}><span>{selected.company}</span><span>{selected.date}</span></div>
+            <div className={styles.resumeMeta}>
+              <span>{selected.company}</span>
+              <span>{selected.date}</span>
+            </div>
             <p>{selected.description}</p>
-            {selected.bullets && <ul>{selected.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+            {selected.bullets && (
+              <ul>
+                {selected.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </article>
       </div>

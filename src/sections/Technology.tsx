@@ -39,20 +39,30 @@ const technologies = [
 export const Technology = () => {
   return (
     <div className={styles.filePickerPage}>
-      <Windows95Bar className={styles.fileViewToolbar}><span>VIEW</span><strong>Large Icons</strong><span className={styles.fileViewCount}>21 objects</span></Windows95Bar>
+      <Windows95Bar className={styles.fileViewToolbar}>
+        <span>VIEW</span>
+        <strong>Large Icons</strong>
+        <span className={styles.fileViewCount}>21 objects</span>
+      </Windows95Bar>
       <section className={styles.programGroup}>
-        <Windows95Bar className={styles.programGroupTitle}><span>▣</span> DEVELOPMENT TOOLS</Windows95Bar>
+        <Windows95Bar className={styles.programGroupTitle}>
+          <span>▣</span> DEVELOPMENT TOOLS
+        </Windows95Bar>
         <div className={styles.fileGrid}>
           {technologies.map(({ name, Icon }, i) => (
             <div className={styles.skillFile} key={name + i} title={name}>
-              <div className={styles.skillFileIcon}><Icon className={styles.technologyIcon} size={42} /></div>
+              <div className={styles.skillFileIcon}>
+                <Icon className={styles.technologyIcon} size={42} />
+              </div>
               <span>{name}</span>
             </div>
           ))}
         </div>
       </section>
       <section className={`${styles.programGroup} ${styles.methodsGroup}`}>
-        <Windows95Bar className={styles.programGroupTitle}><span>▤</span> WORK METHODS</Windows95Bar>
+        <Windows95Bar className={styles.programGroupTitle}>
+          <span>▤</span> WORK METHODS
+        </Windows95Bar>
         <div className={styles.practiceList}>
           {["agile", "kanban", "DevOps", "CI/CD", "scrum", "TDD"].map((text) => <Badge key={text}>{text}</Badge>)}
         </div>
