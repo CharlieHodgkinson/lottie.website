@@ -49,13 +49,13 @@ const App = () => {
             </div>
           </header>
           <div className={styles.windowToolbar}>
-            {sections.map((section) => (
+            {['File', 'Edit', 'View', 'Tools', 'Help'].map((item) => (
               <button
-                className={`${styles.toolbarTab} ${activeTab === section.id ? styles.isActive : ""}`}
-                onClick={() => openSection(section.id)}
-                key={section.id}
+                className={styles.toolbarTab}
+                onClick={() => item === "File" && openSection("welcome")}
+                key={item}
               >
-                {section.label}
+                {item}
               </button>
             ))}
           </div>
@@ -84,15 +84,15 @@ const App = () => {
               </div>
             </nav>
             <div className={styles.workspace}>
-              <Windows95Bar className={styles.sectionTitlebar}>
+              <div className={styles.sidebarLabel}>
                 <span>Contents of 'C:\Portfolio\{activeSection.label}'</span>
-              </Windows95Bar>
+              </div>
               <div className={styles.sectionContent}>{activeSection.component}</div>
             </div>
           </div>
           <footer className={styles.windowFooter}>
-            <span>5 OBJECTS &nbsp; | &nbsp; 1 SELECTED</span>
-            <span>READY &nbsp; | &nbsp; NETWORK: CONNECTED</span>
+            <div className={styles.footerItem}>5 object(s)</div>
+            <div className={styles.footerItem}>0 bytes (Disk free space: 1.91GB)</div>
           </footer>
         </div>
       )}

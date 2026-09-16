@@ -15,11 +15,12 @@
   width: min(1180px, 100%);
   min-height: 720px;
   margin: 0 auto;
-  border: 2px solid var(--window-deep);
+  border: 3px outset var(--window-gray);
   background: var(--window-gray);
-  box-shadow: inset 2px 2px var(--window-light), inset -2px -2px var(--window-shadow), 7px 7px rgba(70, 36, 51, .3);
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  padding: 2px;
 }
 
 .desktopWindow.isMaximized {
@@ -100,19 +101,17 @@
 .windowToolbar {
   display: flex;
   align-items: stretch;
-  gap: 2px;
-  flex: 0 0 34px;
-  min-height: 34px;
-  padding: 3px 4px;
-  border-bottom: 1px solid var(--window-shadow);
+  gap: 0;
+  flex: 0 0 20px;
+  min-height: 20px;
+  padding: 0 4px;
   background: var(--window-gray);
 }
 
 .toolbarTab {
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 4px 9px;
+  padding: 2px 8px;
   border: 1px solid transparent;
   color: var(--ink);
   background: transparent;
@@ -123,14 +122,8 @@
 .toolbarTab:hover,
 .toolbarTab:focus-visible {
   border-color: var(--window-shadow);
-  box-shadow: inset 1px 1px var(--window-light);
-}
-
-.toolbarTab.isActive {
-  border: 1px solid var(--window-shadow);
-  box-shadow: inset 1px 1px var(--window-deep), inset -1px -1px var(--window-light);
-  background: var(--pink-highlight);
-  font-weight: bold;
+  color: var(--ink);
+  background: var(--window-gray);
 }
 
 .toolbarTabIcon {
@@ -141,31 +134,36 @@
 .windowBody {
   display: flex;
   flex: 1 1 auto;
+  gap: 3px;
   min-height: 638px;
-  border: 1px solid var(--window-deep);
-  border-top-color: var(--window-shadow);
   background: var(--window-gray);
 }
 
 .systemSidebar {
-  flex: 0 0 174px;
-  padding: 12px 8px;
-  border-right: 1px solid var(--window-deep);
-  background: var(--window-gray);
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 2px;
 }
 
 .sidebarLabel {
-  margin: 0 0 9px;
-  padding: 4px 6px;
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 3px 6px;
   border: 2px inset var(--window-gray);
   color: var(--ink);
-  background: var(--window-gray);
   font-size: 11px;
   font-weight: bold;
 }
 
 .folderTree {
   position: relative;
+  padding: 0 8px;
+  flex-grow: 1;
+  height: 100%;
+  background: var(--paper);
+  border: 2px inset var(--window-shadow);
 }
 
 .folderChildren {
@@ -228,23 +226,7 @@
 
 
 .sidebarItem.isActive .sidebarIcon {
-  color: var(--pink-highlight);
-}
-
-.sidebarStatus {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 24px 5px 0;
-  color: var(--muted-ink);
-  font-size: 10px;
-}
-
-.statusLight {
-  width: 9px;
-  height: 9px;
-  border: 1px solid var(--window-deep);
-  background: #48a46d;
+  color: var(--pink-select);
 }
 
 .workspace {
@@ -253,45 +235,31 @@
   min-width: 0;
   min-height: 0;
   flex-direction: column;
+  gap: 2px;
   background: var(--window-gray);
-}
-
-.sectionTitlebar {
-  flex: 0 0 28px;
-  margin: 5px 6px 0;
-  border: 2px inset var(--window-gray);
-  color: var(--ink);
-  background: var(--window-gray);
-}
-
-.titlebarGlyph {
-  color: var(--pink-highlight);
-  font-size: 9px;
-}
-
-.titlebarPath {
-  margin-left: auto;
-  font-weight: normal;
 }
 
 .sectionContent {
   flex: 1 1 auto;
   min-height: 0;
-  margin: 8px;
-  border: 2px inset var(--window-gray);
   color: var(--ink);
   background: var(--paper);
+  border: 2px inset var(--window-shadow);
   overflow: auto;
 }
 
 .windowFooter {
   display: flex;
-  justify-content: space-between;
-  padding: 4px 7px;
-  border: 1px inset var(--window-gray);
-  color: var(--muted-ink);
+  justify-content: stretch;
   background: var(--window-gray);
-  font-size: 10px;
+  gap: 2px;
+}
+
+.footerItem {
+  display: flex;
+  border: 2px inset var(--window-gray);
+  flex-grow: 1;
+  padding: 3px 6px;
 }
 
 .desktopShortcut {

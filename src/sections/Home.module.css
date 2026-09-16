@@ -1,26 +1,15 @@
 .documentPage {
   min-height: 606px;
-  padding: 18px !important;
-  background: var(--paper);
   line-height: 1.45;
-}
-
-.homePage {
-  background: linear-gradient(var(--paper), var(--paper)) padding-box, repeating-linear-gradient(0deg, rgba(139, 49, 93, .04) 0, rgba(139, 49, 93, .04) 1px, transparent 1px, transparent 4px);
+  height: 100%;
 }
 
 .homeExplorer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 42%);
   min-height: 505px;
-  border: 2px solid var(--window-shadow);
-  border-top-color: var(--window-deep);
-  border-left-color: var(--window-deep);
-  border-right-color: var(--window-light);
-  border-bottom-color: var(--window-light);
-  outline: 1px solid var(--window-deep);
-  outline-offset: -1px;
-  background: white;
+  height: 100%;
+  padding: 2px;
 }
 
 .homeCopy {
@@ -72,7 +61,7 @@
 .homePreview {
   min-height: 505px;
   padding: 18px 12px;
-  border-left: 1px solid var(--window-shadow);
+  border: 2px inset var(--window-gray);
   background: var(--window-gray);
 }
 
@@ -115,7 +104,7 @@
 .homeProperties {
   margin: 18px 0 0;
   border: 2px inset var(--window-gray);
-  background: white;
+  background: var(--paper);
 }
 
 .homeProperties div {

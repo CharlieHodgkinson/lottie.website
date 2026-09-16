@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 
 export const Home = () => {
   return (
-    <div className={`${styles.documentPage} ${styles.homePage}`}>
+    <div className={styles.documentPage}>
       <div className={styles.homeExplorer}>
         <section className={styles.homeCopy}>
           <span className={styles.fileTypeLabel}>APPLICATION / WELCOME.EXE</span>
