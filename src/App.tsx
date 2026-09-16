@@ -3,29 +3,23 @@ import { Home } from "./sections/Home";
 import styles from "./App.module.css";
 import { About } from "./sections/About";
 import { Technology } from "./sections/Technology";
-import { FaFolder, FaMinus, FaRegSquare, FaStar, FaXmark } from "react-icons/fa6";
+import { FaFolder, FaMinus, FaRegSquare, FaStar, FaXmark, FaFolderOpen } from "react-icons/fa6";
 import { Resume } from "./sections/Resume";
 import { Contact } from "./sections/Contact";
 import { Windows95Bar } from "./components/Windows95Bar";
 
-const tabs = [
-  { id: "home", label: "C:\\LOTTIE", icon: "▣" },
-  { id: "about", label: "ABOUT", icon: "▤" },
-  { id: "technology", label: "SKILLS", icon: "▤" },
-  { id: "resume", label: "RESUME", icon: "▤" },
-  { id: "contact", label: "CONTACT", icon: "▤" },
-];
-
 const sections = [
-  { id: "home", title: "welcome.exe", component: <Home /> },
-  { id: "about", title: "about.txt", component: <About /> },
-  { id: "technology", title: "technology.sys", component: <Technology /> },
-  { id: "resume", title: "resume.doc", component: <Resume /> },
-  { id: "contact", title: "contact.mail", component: <Contact /> },
+  {
+    id: "welcome", label: "Welcome", component: <Home />
+  },
+  { id: "about", label: "About", component: <About /> },
+  { id: "technology", label: "Skills", component: <Technology /> },
+  { id: "resume", label: "Resume", component: <Resume /> },
+  { id: "contact", label: "Contact", component: <Contact /> },
 ];
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("welcome");
   const [isStartOpen, setIsStartOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -46,7 +40,7 @@ const App = () => {
           <header className={styles.windowHeader}>
             <div className={styles.windowBrand}>
               <span className={styles.brandMark}><FaStar /></span>
-              <span>PORTFOLIO</span>
+              <span>Exploring - C:\Portfolio\{activeSection.label}</span>
             </div>
             <div className={styles.windowControls}>
               <button aria-label="Minimize desktop" onClick={() => setIsMinimized(true)}><FaMinus /></button>
@@ -54,39 +48,44 @@ const App = () => {
               <button aria-label="Close desktop" onClick={() => setIsClosed(true)}><FaXmark /></button>
             </div>
           </header>
-          <nav className={styles.windowToolbar} aria-label="Main navigation">
-            {tabs.map((tab) => <button className={`${styles.toolbarTab} ${activeTab === tab.id ? styles.isActive : ""}`} onClick={() => openSection(tab.id)} key={tab.id}>
-              <span className={styles.toolbarTabIcon}>{tab.icon}</span>{tab.id.toUpperCase()}
-            </button>)}
-            <span className={styles.toolbarLocation}>C:\\USERS\\CHARLOTTE\\PORTFOLIO</span>
-          </nav>
+          <div className={styles.windowToolbar}>
+            {sections.map((section) => (
+              <button
+                className={`${styles.toolbarTab} ${activeTab === section.id ? styles.isActive : ""}`}
+                onClick={() => openSection(section.id)}
+                key={section.id}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
           <div className={styles.windowBody}>
-            <aside className={styles.systemSidebar}>
-              <div className={styles.sidebarLabel}>MY COMPUTER</div>
-              <button className={styles.computerIcon} onClick={() => openSection("home")}><span>▣</span><small>C:\LOTTIE</small></button>
-              <div className={`${styles.sidebarLabel} ${styles.folderLabel}`}>PROGRAMS</div>
-              {tabs.slice(1).map((tab) => (
-                <button
-                  className={`${styles.sidebarItem} ${activeTab === tab.id ? styles.isActive : ""}`}
-                  onClick={() => openSection(tab.id)}
-                  key={tab.id}
-                >
-                  <span className={styles.sidebarIcon}>{tab.icon}</span>
-                  <span>{tab.id}.exe</span>
+            <nav className={styles.systemSidebar}>
+              <div className={styles.sidebarLabel}>All Folders</div>
+              <div className={styles.folderTree}>
+                <button className={`${styles.sidebarItem} ${styles.portfolioItem}`}>
+                  <span className={styles.sidebarIcon}><FaFolderOpen /></span>
+                  <span>Portfolio</span>
                 </button>
-              ))}
-              <div className={styles.sidebarStatus}>
-                <span className={styles.statusLight} />
-                <span>system online</span>
+                <div className={styles.folderChildren}>
+                  {sections.map((section) => (
+                    <button
+                      className={styles.sidebarItem}
+                      onClick={() => openSection(section.id)}
+                      key={section.id}
+                    >
+                      <span className={`${styles.sidebarIcon} ${activeTab === section.id ? styles.activeSidebarIcon : ""}`}>
+                        {activeTab === section.id ? <FaFolderOpen /> : <FaFolder />}
+                      </span>
+                      <span>{section.label}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </aside>
+            </nav>
             <div className={styles.workspace}>
               <Windows95Bar className={styles.sectionTitlebar}>
-                <span className={styles.titlebarGlyph}>◆</span>
-                <span>{activeSection.title}</span>
-                <span className={styles.titlebarPath}>
-                  C:\\LOTTIE\\{activeSection.id.toUpperCase()}
-                </span>
+                <span>Contents of 'C:\Portfolio\{activeSection.label}'</span>
               </Windows95Bar>
               <div className={styles.sectionContent}>{activeSection.component}</div>
             </div>
@@ -114,7 +113,11 @@ const App = () => {
       {isStartOpen && <div className={styles.startMenu}>
         <div className={styles.startMenuBanner}><strong>Windows</strong><span>95</span></div>
         <div className={styles.startMenuItems}>
-          {tabs.map((tab) => <button onClick={() => openSection(tab.id)} key={tab.id}><span>{tab.icon}</span>{tab.id === "home" ? "Welcome" : tab.id[0].toUpperCase() + tab.id.slice(1)}</button>)}
+          {sections.map((section) => (
+            <button onClick={() => openSection(section.id)} key={section.id}>
+              {section.label}
+            </button>
+          ))}
         </div>
       </div>}
 

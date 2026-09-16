@@ -138,15 +138,6 @@
   font-size: 13px;
 }
 
-.toolbarLocation {
-  align-self: center;
-  margin-left: auto;
-  padding: 2px 6px;
-  color: var(--muted-ink);
-  font-size: 11px;
-  white-space: nowrap;
-}
-
 .windowBody {
   display: flex;
   flex: 1 1 auto;
@@ -164,78 +155,77 @@
 }
 
 .sidebarLabel {
-  margin: 2px 3px 8px;
-  color: var(--pink-title);
+  margin: 0 0 9px;
+  padding: 4px 6px;
+  border: 2px inset var(--window-gray);
+  color: var(--ink);
+  background: var(--window-gray);
   font-size: 11px;
   font-weight: bold;
 }
 
-.folderLabel {
-  margin-top: 21px;
-  padding-top: 10px;
-  border-top: 1px solid var(--window-shadow);
+.folderTree {
+  position: relative;
 }
 
-.computerIcon {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 6px;
-  border: 1px solid transparent;
-  color: var(--ink);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
+.folderChildren {
+  position: relative;
+  margin-left: 17px;
 }
 
-.computerIcon:hover,
-.computerIcon:focus-visible {
-  border-color: var(--window-shadow);
-  background: var(--pink-highlight);
-}
-
-.computerIcon span {
-  display: grid;
-  width: 30px;
-  height: 24px;
-  place-items: center;
-  border: 2px outset var(--window-gray);
-  color: var(--pink-title);
-  background: var(--pink-highlight);
-  font-size: 16px;
-}
-
-.computerIcon small {
-  font-size: 11px;
+.folderChildren::before {
+  position: absolute;
+  top: -11px;
+  bottom: 15px;
+  left: -7px;
+  border-left: 1px dotted var(--window-shadow);
+  content: "";
 }
 
 .sidebarItem {
   display: flex;
+  position: relative;
   width: 100%;
   align-items: center;
   gap: 8px;
-  padding: 7px 6px;
+  padding: 6px 5px;
   border: 1px solid transparent;
   color: var(--ink);
   background: transparent;
   text-align: left;
   cursor: pointer;
   font-size: 11px;
+}
+
+.folderChildren .sidebarItem::before {
+  position: absolute;
+  top: 50%;
+  left: -7px;
+  width: 12px;
+  border-top: 1px dotted var(--window-shadow);
+  content: "";
+}
+
+.portfolioItem {
+  padding-left: 5px;
 }
 
 .sidebarItem:hover,
 .sidebarItem:focus-visible,
 .sidebarItem.isActive {
-  border-color: var(--pink-select);
-  color: white;
-  background: var(--pink-select);
+  color: var(--pink-title);
 }
 
 .sidebarIcon {
   width: 18px;
+  color: var(--muted-ink);
+}
+
+.activeSidebarIcon {
+  width: 18px;
   color: var(--pink-title);
 }
+
 
 .sidebarItem.isActive .sidebarIcon {
   color: var(--pink-highlight);
@@ -268,6 +258,10 @@
 
 .sectionTitlebar {
   flex: 0 0 28px;
+  margin: 5px 6px 0;
+  border: 2px inset var(--window-gray);
+  color: var(--ink);
+  background: var(--window-gray);
 }
 
 .titlebarGlyph {
