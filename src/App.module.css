@@ -246,6 +246,7 @@
   background: var(--paper);
   border: 2px inset var(--window-shadow);
   overflow: auto;
+  padding: 0;
 }
 
 .windowFooter {

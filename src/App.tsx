@@ -6,7 +6,6 @@ import { Technology } from "./sections/Technology";
 import { FaFolder, FaMinus, FaRegSquare, FaStar, FaXmark, FaFolderOpen } from "react-icons/fa6";
 import { Resume } from "./sections/Resume";
 import { Contact } from "./sections/Contact";
-import { Windows95Bar } from "./components/Windows95Bar";
 
 const sections = [
   {
@@ -106,7 +105,7 @@ const App = () => {
           }}
         >
           <FaFolder />
-          <span>Charlotte's<br />Desktop</span>
+          <span>Portfolio</span>
         </button>
       )}
 
@@ -136,7 +135,7 @@ const App = () => {
               setIsClosed(false);
             }}
           >
-            <FaFolder /> Charlotte's Desktop
+            <FaFolder /> Portfolio
           </button>
         )}
         <span className={styles.taskbarClock}>{new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>

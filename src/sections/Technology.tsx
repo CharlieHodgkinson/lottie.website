@@ -14,13 +14,16 @@ import {
   SiGraphql,
   SiGithub,
   SiGitlab,
+  SiPython,
 } from "react-icons/si";
 import styles from "./Technology.module.css";
+import { RiFolderChartLine } from "react-icons/ri";
 
 const technologies = [
   { name: "React JS", Icon: FaReact },
   { name: "TypeScript", Icon: SiTypescript },
   { name: "Node JS", Icon: FaNodeJs },
+  { name: "Python", Icon: SiPython },
   { name: "NPM", Icon: FaNpm },
   { name: "NX monorepos", Icon: SiNx },
   { name: "AWS", Icon: FaAws },
@@ -34,49 +37,25 @@ const technologies = [
   { name: "GraphQL", Icon: SiGraphql },
   { name: "Github", Icon: SiGithub },
   { name: "GitLab", Icon: SiGitlab },
+  { name: "agile", Icon: RiFolderChartLine },
+  { name: "kanban", Icon: RiFolderChartLine },
+  { name: "DevOps", Icon: RiFolderChartLine },
+  { name: "CI/CD", Icon: RiFolderChartLine },
+  { name: "scrum", Icon: RiFolderChartLine },
+  { name: "TDD", Icon: RiFolderChartLine }
 ];
 
 export const Technology = () => {
   return (
-    <div className={styles.filePickerPage}>
-      <Windows95Bar className={styles.fileViewToolbar}>
-        <span>VIEW</span>
-        <strong>Large Icons</strong>
-        <span className={styles.fileViewCount}>21 objects</span>
-      </Windows95Bar>
-      <section className={styles.programGroup}>
-        <Windows95Bar className={styles.programGroupTitle}>
-          <span>▣</span> DEVELOPMENT TOOLS
-        </Windows95Bar>
-        <div className={styles.fileGrid}>
-          {technologies.map(({ name, Icon }, i) => (
-            <div className={styles.skillFile} key={name + i} title={name}>
-              <div className={styles.skillFileIcon}>
-                <Icon className={styles.technologyIcon} size={42} />
-              </div>
-              <span>{name}</span>
-            </div>
-          ))}
+    <div className={styles.fileGrid}>
+      {technologies.map(({ name, Icon }, i) => (
+        <div className={styles.skillFile} key={name + i} title={name}>
+          <div className={styles.skillFileIcon}>
+            <Icon className={styles.technologyIcon} size={42} />
+          </div>
+          <span>{name}</span>
         </div>
-      </section>
-      <section className={`${styles.programGroup} ${styles.methodsGroup}`}>
-        <Windows95Bar className={styles.programGroupTitle}>
-          <span>▤</span> WORK METHODS
-        </Windows95Bar>
-        <div className={styles.practiceList}>
-          {["agile", "kanban", "DevOps", "CI/CD", "scrum", "TDD"].map((text) => <Badge key={text}>{text}</Badge>)}
-        </div>
-      </section>
-    </div>
-  );
-};
-
-const Badge = ({ children }: PropsWithChildren) => {
-  return (
-    <div style={{ width: "max-content" }}>
-      <p className={styles.skillBadge}>
-        {children}
-      </p>
+      ))}
     </div>
   );
 };

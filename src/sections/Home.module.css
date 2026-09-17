@@ -20,7 +20,7 @@
 .homeCopy h1 {
   max-width: 500px;
   margin: 0 0 24px;
-  font-size: clamp(28px, 3.1vw, 38px);
+  font-size: 22px;
 }
 
 .downloadButton {
@@ -85,7 +85,7 @@
 }
 
 .welcomePanel p {
-  margin: 7px 0 0;
+  margin: 2px 0;
   color: var(--muted-ink);
   font-size: 10px;
 }

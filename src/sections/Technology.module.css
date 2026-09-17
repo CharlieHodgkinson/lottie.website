@@ -1,75 +1,9 @@
-.filePickerPage {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 24px;
-    padding: 24px !important;
-}
-
-.fileViewToolbar {
-    color: var(--muted-ink);
-    background: var(--window-gray);
-    font-size: 10px;
-}
-
-.fileViewToolbar strong {
-    padding: 3px 8px;
-    border: 1px solid var(--window-shadow);
-    color: var(--ink);
-    background: white;
-    font-weight: normal;
-}
-
-.fileViewCount {
-    margin-left: auto;
-    color: var(--pink-title);
-}
-
-.programGroup {
-    border: 2px solid var(--window-shadow);
-    border-top-color: var(--window-deep);
-    border-left-color: var(--window-deep);
-    border-right-color: var(--window-light);
-    border-bottom-color: var(--window-light);
-    outline: 1px solid var(--window-deep);
-    outline-offset: -1px;
-    background: white;
-}
-
-.programGroupTitle {
-    min-height: 27px;
-    color: white;
-    background: var(--pink-title);
-    font-size: 10px;
-    font-weight: bold;
-}
-
-.programGroupTitle span {
-    color: var(--pink-highlight);
-}
-
 .fileGrid {
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 50px 12px;
     width: 100%;
-    padding: 16px !important;
+    padding: 8px;
     align-items: start;
-}
-
-.methodsGroup {
-    margin-top: 4px;
-}
-
-.practiceList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    width: 100%;
-    padding: 14px 16px !important;
-    border-top: 0;
 }
 
 .skillFile {
@@ -86,13 +20,12 @@
 }
 
 .skillFile:hover {
-    border-color: var(--pink-select);
-    background: var(--pink-highlight);
+    background: color-mix(var(--pink-highlight), transparent);
 }
 
 .skillFileIcon {
     display: grid;
-    width: 64px;
+    width: 54px;
     height: 54px;
     place-items: center;
     border: 2px outset var(--window-gray);
@@ -101,17 +34,8 @@
 }
 
 .skillFile>span {
-    font-size: 10px;
-    line-height: 1.15;
-}
-
-.skillBadge {
-    margin: 0;
-    padding: 5px 10px;
-    border: 2px outset var(--window-gray);
-    color: var(--ink) !important;
-    background: var(--pink-highlight);
     font-size: 12px;
+    line-height: 1.15;
 }
 
 .technologyIcon {

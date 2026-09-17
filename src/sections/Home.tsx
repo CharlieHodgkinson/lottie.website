@@ -5,10 +5,9 @@ export const Home = () => {
     <div className={styles.documentPage}>
       <div className={styles.homeExplorer}>
         <section className={styles.homeCopy}>
-          <span className={styles.fileTypeLabel}>APPLICATION / WELCOME.EXE</span>
           <h1>
-            hey there!<br />
-            i'm <b className={styles.purple}>Charlotte Hodgkinson</b>
+            Hey there!<br />
+            I'm <b className={styles.purple}>Charlotte Hodgkinson</b>
           </h1>
           <p className={styles.homeSummary}>
             Fullstack software engineer building useful things for the web.
@@ -26,8 +25,8 @@ export const Home = () => {
           <div className={styles.welcomePanel}>
             <div className={styles.welcomeIcon}>★</div>
             <div>
-              <strong>CHARLOTTE'S DESKTOP</strong>
-              <p>Welcome to my personal portfolio.</p>
+              <strong>CHARLOTTE'S PORTFOLIO</strong>
+              <p>Welcome to my portfolio site.</p>
             </div>
           </div>
           <dl className={styles.homeProperties}>

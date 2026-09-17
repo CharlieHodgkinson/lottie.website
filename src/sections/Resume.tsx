@@ -11,7 +11,7 @@ type ResumeRecord = {
 
 const records: ResumeRecord[] = [
   {
-    date: "2022-present",
+    date: "2022-2025",
     role: "Fullstack Software Engineer",
     company: "Wealth Wizards",
     description: "Developed SaaS applications using a micro-frontend architecture with a mobile-first approach, ensuring compliance with WCAG AA accessibility standards. Built applications delivering automated financial advice in a highly regulated environment.",
