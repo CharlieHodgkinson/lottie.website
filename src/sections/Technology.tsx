@@ -1,5 +1,3 @@
-import { PropsWithChildren } from "react";
-import { Windows95Bar } from "../components/Windows95Bar";
 import { FaReact, FaNodeJs, FaNpm, FaAws } from "react-icons/fa";
 import {
   SiTypescript,

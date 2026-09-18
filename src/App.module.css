@@ -1,8 +1,9 @@
 .desktopShell {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 0;
   padding: 22px 22px 54px;
-  overflow: auto;
+  overflow: hidden;
   background-color: var(--desktop);
   background-image: linear-gradient(135deg, rgba(255, 255, 255, .08) 25%, transparent 25%), linear-gradient(315deg, rgba(0, 0, 0, .04) 25%, transparent 25%);
   background-position: 0 0, 8px 8px;
@@ -13,7 +14,8 @@
   position: relative;
   z-index: 1;
   width: min(1180px, 100%);
-  min-height: 720px;
+  height: calc(100vh - 76px);
+  min-height: 0;
   margin: 0 auto;
   border: 3px outset var(--window-gray);
   background: var(--window-gray);
@@ -99,7 +101,7 @@
 }
 
 .windowToolbar {
-  display: flex;
+  display: none;
   align-items: stretch;
   gap: 0;
   flex: 0 0 20px;
@@ -126,16 +128,16 @@
   background: var(--window-gray);
 }
 
-.toolbarTabIcon {
-  color: var(--pink-select);
-  font-size: 13px;
+.toolbarTab[aria-selected="true"] {
+  border-color: 2px outset var(--window-gray);
+  background: var(--window-gray);
 }
 
 .windowBody {
   display: flex;
   flex: 1 1 auto;
   gap: 3px;
-  min-height: 638px;
+  min-height: 0;
   background: var(--window-gray);
 }
 
@@ -257,10 +259,19 @@
 }
 
 .footerItem {
-  display: flex;
-  border: 2px inset var(--window-gray);
   flex-grow: 1;
+  min-width: 0;
+  border: 2px inset var(--window-gray);
   padding: 3px 6px;
+  white-space: nowrap;
+  min-width: min-content;
+}
+
+.footerItemOverflow {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .desktopShortcut {
@@ -416,24 +427,20 @@
 
   .desktopWindow {
     width: 100%;
-    min-height: calc(100vh - 62px);
+    height: calc(100vh - 62px);
+    min-height: 0;
   }
 
   .systemSidebar {
     display: none;
   }
 
+  .windowToolbar {
+    display: flex;
+  }
+
   .toolbarLocation {
     display: none;
-  }
-
-  .windowBody,
-  .workspace {
-    min-height: calc(100vh - 140px);
-  }
-
-  .sectionContent {
-    min-height: calc(100vh - 164px);
   }
 
   .windowFooter span:first-child {
@@ -450,19 +457,6 @@
 }
 
 @media (max-width: 520px) {
-  .windowBrand>span:last-child {
-    font-size: 10px;
-  }
-
-  .toolbarTab {
-    padding: 4px 6px;
-    font-size: 10px;
-  }
-
-  .toolbarTabIcon {
-    display: none;
-  }
-
   .startMenu {
     left: 8px;
   }

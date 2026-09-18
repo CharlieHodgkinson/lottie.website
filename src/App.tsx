@@ -48,13 +48,14 @@ const App = () => {
             </div>
           </header>
           <div className={styles.windowToolbar}>
-            {['File', 'Edit', 'View', 'Tools', 'Help'].map((item) => (
+            {sections.map((section) => (
               <button
                 className={styles.toolbarTab}
-                onClick={() => item === "File" && openSection("welcome")}
-                key={item}
+                onClick={() => openSection(section.id)}
+                aria-selected={activeTab === section.id}
+                key={section.id}
               >
-                {item}
+                {section.label}
               </button>
             ))}
           </div>
@@ -91,7 +92,7 @@ const App = () => {
           </div>
           <footer className={styles.windowFooter}>
             <div className={styles.footerItem}>5 object(s)</div>
-            <div className={styles.footerItem}>0 bytes (Disk free space: 1.91GB)</div>
+            <div className={`${styles.footerItem} ${styles.footerItemOverflow}`}>0 bytes (Disk free space: 1.91GB)</div>
           </footer>
         </div>
       )}

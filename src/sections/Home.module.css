@@ -1,5 +1,4 @@
 .documentPage {
-  min-height: 606px;
   line-height: 1.45;
   height: 100%;
 }
@@ -7,7 +6,6 @@
 .homeExplorer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 42%);
-  min-height: 505px;
   height: 100%;
   padding: 2px;
 }
@@ -59,7 +57,6 @@
 }
 
 .homePreview {
-  min-height: 505px;
   padding: 18px 12px;
   border: 2px inset var(--window-gray);
   background: var(--window-gray);
