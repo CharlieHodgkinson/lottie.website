@@ -2,52 +2,96 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 export const Contact = () => {
+  const activateRow = (row: HTMLTableRowElement) => {
+    row.querySelector<HTMLAnchorElement>("a")?.click();
+  };
+
   return (
-    <div className={`${styles.documentPage} ${styles.contactPage}`}>
-      <div className={styles.contactDocument}>
-        <div className={styles.contactHeader}>
-          <div className={styles.contactAvatar}>@</div>
-          <div>
-            <h2 className={styles.contactDocumentTitle}>Charlotte Hodgkinson</h2>
-            <p>Address card / London, UK</p>
-          </div>
-        </div>
-        <div className={styles.contactFields}>
-          <div className={styles.contactField}>
-            <span>EMAIL</span>
-            <a href="mailto:charlotte.hodgkinson4@gmail.com">
-              charlotte.hodgkinson4@gmail.com
-            </a>
-          </div>
-          <div className={styles.contactField}>
-            <span>GITHUB</span>
-            <a
-              href="https://github.com/CharlieHodgkinson"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaGithub /> github.com/CharlieHodgkinson
-            </a>
-          </div>
-          <div className={styles.contactField}>
-            <span>LINKEDIN</span>
-            <a
-              href="https://www.linkedin.com/in/charlotte-hodgkinson-669349174"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin /> linkedin.com/charlotte-hodgkinson
-            </a>
-          </div>
-        </div>
-        <div className={styles.contactNote}>
-          <strong>MESSAGE</strong>
-          <p>
-            Feel free to drop me an email. I'm always happy to talk about software,
-            creative work, and new opportunities.
-          </p>
-        </div>
-      </div>
+    <div className={styles.contactDocument}>
+      <table className={styles.contactTable} aria-label="Contact methods">
+        <thead>
+          <tr className={styles.contactTableHead}>
+            <th>Name</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className={styles.contactRecord}
+            onClick={(event) => {
+              if (!(event.target instanceof Element && event.target.closest("a"))) {
+                activateRow(event.currentTarget);
+              }
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                activateRow(event.currentTarget);
+              }
+            }}
+            tabIndex={0}
+          >
+            <td>Email</td>
+            <td>
+              <a href="mailto:charlotte.hodgkinson4@gmail.com">
+                charlotte.hodgkinson4@gmail.com
+              </a>
+            </td>
+          </tr>
+          <tr
+            className={styles.contactRecord}
+            onClick={(event) => {
+              if (!(event.target instanceof Element && event.target.closest("a"))) {
+                activateRow(event.currentTarget);
+              }
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                activateRow(event.currentTarget);
+              }
+            }}
+            tabIndex={0}
+          >
+            <td>GitHub</td>
+            <td>
+              <a
+                href="https://github.com/CharlieHodgkinson"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub /> github.com/CharlieHodgkinson
+              </a>
+            </td>
+          </tr>
+          <tr
+            className={styles.contactRecord}
+            onClick={(event) => {
+              if (!(event.target instanceof Element && event.target.closest("a"))) {
+                activateRow(event.currentTarget);
+              }
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                activateRow(event.currentTarget);
+              }
+            }}
+            tabIndex={0}
+          >
+            <td>LinkedIn</td>
+            <td>
+              <a
+                href="https://www.linkedin.com/in/charlotte-hodgkinson-669349174"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin /> linkedin.com/charlotte-hodgkinson
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -11,9 +11,9 @@ const sections = [
   {
     id: "welcome", label: "Welcome", component: <Home />
   },
-  { id: "about", label: "About", component: <About /> },
-  { id: "technology", label: "Skills", component: <Technology /> },
   { id: "resume", label: "Resume", component: <Resume /> },
+  { id: "technology", label: "Skills", component: <Technology /> },
+  { id: "about", label: "About", component: <About /> },
   { id: "contact", label: "Contact", component: <Contact /> },
 ];
 
@@ -33,7 +33,7 @@ const App = () => {
   };
 
   return (
-    <main className={styles.desktopShell}>
+    <main className={`${styles.desktopShell} ${isMaximized ? styles.isMaximizedShell : ""}`}>
       {!isClosed && !isMinimized && (
         <div className={styles.desktopWindow + (isMaximized ? " " + styles.isMaximized : "")}>
           <header className={styles.windowHeader}>

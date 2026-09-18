@@ -141,14 +141,12 @@
 }
 
 @media (max-width: 760px) {
-  .documentPage {
-    min-height: calc(100vh - 164px);
-    padding: 20px !important;
-  }
+
 
   .homeExplorer {
     grid-template-columns: minmax(0, 1fr);
     min-height: 0;
+    height: min-content;
   }
 
   .homeCopy {
@@ -162,10 +160,6 @@
     border-left: 0;
   }
 
-  .homeCopy h1 {
-    font-size: clamp(25px, 8vw, 34px);
-    overflow-wrap: anywhere;
-  }
 
   .homeSummary {
     max-width: none;
@@ -183,5 +177,3 @@
     padding: 20px !important;
   }
 }
-
-@media (max-width: 520px) {}

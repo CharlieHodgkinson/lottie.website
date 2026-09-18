@@ -190,6 +190,12 @@ export const Resume = () => {
         <dialog
           className={styles.resumeDialog}
           ref={dialogRef}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              event.preventDefault();
+              setIsDialogOpen(false);
+            }
+          }}
           onClose={() => {
             setIsDialogOpen(false);
             setSelectedIndex(null);
