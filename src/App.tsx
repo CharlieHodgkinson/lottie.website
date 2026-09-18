@@ -3,7 +3,7 @@ import { Home } from "./sections/Home";
 import styles from "./App.module.css";
 import { About } from "./sections/About";
 import { Technology } from "./sections/Technology";
-import { FaFolder, FaMinus, FaRegSquare, FaStar, FaXmark, FaFolderOpen } from "react-icons/fa6";
+import { FaFolder, FaMinus, FaPowerOff, FaRegSquare, FaStar, FaXmark, FaFolderOpen } from "react-icons/fa6";
 import { Resume } from "./sections/Resume";
 import { Contact } from "./sections/Contact";
 
@@ -32,8 +32,21 @@ const App = () => {
     setIsStartOpen(false);
   };
 
+  const restoreExplorer = () => {
+    setIsClosed(false);
+    setIsMinimized(false);
+    setIsStartOpen(false);
+  };
+
   return (
-    <main className={`${styles.desktopShell} ${isMaximized ? styles.isMaximizedShell : ""}`}>
+    <main
+      className={`${styles.desktopShell} ${isMaximized ? styles.isMaximizedShell : ""}`}
+      onClick={(event) => {
+        if (isStartOpen) {
+          setIsStartOpen(false);
+        }
+      }}
+    >
       {!isClosed && !isMinimized && (
         <div className={styles.desktopWindow + (isMaximized ? " " + styles.isMaximized : "")}>
           <header className={styles.windowHeader}>
@@ -100,30 +113,38 @@ const App = () => {
       {(isClosed || isMinimized) && (
         <button
           className={styles.desktopShortcut}
-          onClick={() => {
-            setIsClosed(false);
-            setIsMinimized(false);
-          }}
+          onClick={restoreExplorer}
         >
           <FaFolder />
           <span>Portfolio</span>
         </button>
       )}
 
-      {isStartOpen && <div className={styles.startMenu}>
-        <div className={styles.startMenuBanner}><strong>Windows</strong><span>95</span></div>
-        <div className={styles.startMenuItems}>
-          {sections.map((section) => (
-            <button onClick={() => openSection(section.id)} key={section.id}>
-              {section.label}
+      {isStartOpen && (
+        <div className={styles.startMenu} onClick={(event) => event.stopPropagation()}>
+          <div className={styles.startMenuBanner}>Charlotte's site</div>
+          <div className={styles.startMenuItems}>
+            <button onClick={restoreExplorer}>
+              <FaFolder />
+              <span>Portfolio</span>
             </button>
-          ))}
+            <button
+              onClick={() => {
+                setIsStartOpen(false);
+                alert("Goodbye :'(");
+              }}
+            >
+              <FaPowerOff />
+              <span>Shut down</span>
+            </button>
+          </div>
         </div>
-      </div>}
+      )}
 
       <footer className={styles.taskbar}>
         <button
-          className={styles.startButton}
+          className={`${styles.startButton} ${isStartOpen ? styles.isPressed : ""}`}
+          aria-expanded={isStartOpen}
           onClick={() => setIsStartOpen(!isStartOpen)}
         >
           <FaStar /> Start
@@ -141,7 +162,7 @@ const App = () => {
         )}
         <span className={styles.taskbarClock}>{new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>
       </footer>
-    </main>
+    </main >
   );
 };
 

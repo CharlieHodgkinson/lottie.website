@@ -310,14 +310,13 @@
 .startMenu {
   position: fixed;
   z-index: 10;
-  bottom: 40px;
-  left: 22px;
+  bottom: 30px;
+  left: 0px;
   display: flex;
-  width: 220px;
-  min-height: 270px;
+  width: 200px;
+  min-height: 180px;
   border: 2px outset var(--window-gray);
   background: var(--window-gray);
-  box-shadow: 4px 4px rgba(0, 0, 0, .25);
 }
 
 .startMenuBanner {
@@ -326,11 +325,11 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 8px 5px;
-  color: white;
+  color: var(--paper);
   background: var(--pink-title);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .startMenuBanner span {
@@ -361,18 +360,10 @@
 .startMenuItems button:hover,
 .startMenuItems button:focus-visible {
   border-color: var(--pink-select);
-  color: white;
   background: var(--pink-select);
+  color: white;
 }
 
-.startMenuItems button span {
-  color: var(--pink-title);
-  font-size: 15px;
-}
-
-.startMenuItems button:hover span {
-  color: var(--pink-highlight);
-}
 
 .taskbar {
   position: fixed;
@@ -405,6 +396,11 @@
 
 .startButton svg {
   color: var(--pink-title);
+}
+
+.startButton.isPressed {
+  border-style: inset;
+  background: var(--pink-highlight);
 }
 
 .taskbarApp {
