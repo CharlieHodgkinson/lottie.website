@@ -1,11 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&family=VT323&display=swap");
-html { scroll-behavior: smooth; }
+
+:root {
+  --desktop: #c98ba7;
+  --desktop-dark: #a66786;
+  --window-gray: #c0c0c0;
+  --window-light: #ffffff;
+  --window-shadow: #808080;
+  --window-deep: #000000;
+  --explorer-pane: #dfdfdf;
+  --pink-title: #8b315d;
+  --pink-title-inactive: #b77896;
+  --pink-highlight: #f3bdd1;
+  --pink-select: #a84370;
+  --ink: #111111;
+  --muted-ink: #4c3d46;
+  --paper: #fff8f1;
+  --mint: #a7cdbf;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: "DM Mono", monospace !important;
+  font-size: 13px;
+  font-family: "DM Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f4adc8;
-  color: #321a2b;
+  background: var(--desktop);
+  color: var(--ink);
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--window-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px outset var(--window-gray);
+  background: var(--window-gray);
+}

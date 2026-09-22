@@ -1,0 +1,473 @@
+.desktopShell {
+  position: relative;
+  height: 100vh;
+  min-height: 0;
+  padding: 22px 22px 54px;
+  overflow: hidden;
+  background-color: var(--desktop);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, .08) 25%, transparent 25%), linear-gradient(315deg, rgba(0, 0, 0, .04) 25%, transparent 25%);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+.isMaximizedShell {
+  padding: 0;
+}
+
+.desktopWindow {
+  position: relative;
+  z-index: 1;
+  min-width: 320px;
+  width: min(1180px, 100%);
+  height: calc(70vh - 36px);
+  min-height: 0;
+  margin: 0 auto;
+  border: 3px outset var(--window-gray);
+  background: var(--window-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px;
+}
+
+.desktopWindow.isMaximized {
+  width: 100%;
+  height: calc(100vh - 36px);
+  min-height: 0;
+}
+
+.desktopWindow.isMaximized .windowBody {
+  min-height: 0;
+}
+
+.windowHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 26px;
+  padding: 3px 4px 3px 7px;
+  color: white;
+  background: var(--pink-title);
+  font-weight: bold;
+}
+
+.windowBrand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.windowBrand>span:last-child {
+  overflow: hidden;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.brandMark {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  color: var(--pink-title);
+  background: var(--pink-highlight);
+  font-size: 10px;
+}
+
+.windowControls {
+  display: flex;
+  gap: 3px;
+}
+
+.windowControls button {
+  display: grid;
+  width: 18px;
+  height: 16px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--window-deep);
+  color: var(--ink);
+  background: var(--window-gray);
+  box-shadow: inset 1px 1px var(--window-light), inset -1px -1px var(--window-shadow);
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.windowControls button:active,
+.startButton:active,
+.taskbarApp:active,
+.toolbarTab:active,
+.startMenuItems button:active {
+  box-shadow: inset 1px 1px var(--window-shadow), inset -1px -1px var(--window-light);
+}
+
+.windowToolbar {
+  display: none;
+  align-items: stretch;
+  gap: 0;
+  flex: 0 0 20px;
+  min-height: 20px;
+  padding: 0 4px;
+  background: var(--window-gray);
+  overflow: hidden;
+}
+
+.toolbarTab {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.toolbarTab:hover,
+.toolbarTab:focus-visible {
+  border-color: var(--window-shadow);
+  color: var(--ink);
+  background: var(--window-gray);
+}
+
+.toolbarTab[aria-selected="true"] {
+  border-color: 2px outset var(--window-gray);
+  background: var(--window-gray);
+}
+
+.windowBody {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 3px;
+  min-height: 0;
+  background: var(--window-gray);
+}
+
+.systemSidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  gap: 2px;
+}
+
+.sidebarLabel {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 3px 6px;
+  border: 2px inset var(--window-gray);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.folderTree {
+  position: relative;
+  padding: 0 8px;
+  flex-grow: 1;
+  height: 100%;
+  background: var(--paper);
+  border: 2px inset var(--window-shadow);
+}
+
+.folderChildren {
+  position: relative;
+  margin-left: 17px;
+}
+
+.folderChildren::before {
+  position: absolute;
+  top: -11px;
+  bottom: 15px;
+  left: -7px;
+  border-left: 1px dotted var(--window-shadow);
+  content: "";
+}
+
+.sidebarItem {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 5px;
+  border: 1px solid transparent;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.folderChildren .sidebarItem::before {
+  position: absolute;
+  top: 50%;
+  left: -7px;
+  width: 12px;
+  border-top: 1px dotted var(--window-shadow);
+  content: "";
+}
+
+.portfolioItem {
+  padding-left: 5px;
+}
+
+.sidebarItem:hover,
+.sidebarItem:focus-visible,
+.sidebarItem.isActive {
+  color: var(--pink-title);
+}
+
+.sidebarIcon {
+  width: 18px;
+  color: var(--muted-ink);
+}
+
+.activeSidebarIcon {
+  width: 18px;
+  color: var(--pink-title);
+}
+
+
+.sidebarItem.isActive .sidebarIcon {
+  color: var(--pink-select);
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--window-gray);
+}
+
+.sectionContent {
+  flex: 1 1 auto;
+  min-height: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px inset var(--window-shadow);
+  overflow: auto;
+  padding: 0;
+}
+
+.windowFooter {
+  display: flex;
+  justify-content: stretch;
+  background: var(--window-gray);
+  gap: 2px;
+}
+
+.footerItem {
+  flex-grow: 1;
+  min-width: 0;
+  border: 2px inset var(--window-gray);
+  padding: 3px 6px;
+  white-space: nowrap;
+  min-width: min-content;
+}
+
+.footerItemOverflow {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktopShortcut {
+  display: flex;
+  width: 88px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid transparent;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: center;
+}
+
+.desktopShortcut:hover,
+.desktopShortcut:focus-visible {
+  border-color: var(--pink-select);
+  background: var(--pink-highlight);
+}
+
+.desktopShortcut svg {
+  width: 32px;
+  height: 32px;
+  color: var(--pink-title);
+}
+
+.startMenu {
+  position: fixed;
+  z-index: 10;
+  bottom: 30px;
+  left: 0px;
+  display: flex;
+  width: 200px;
+  min-height: 180px;
+  border: 2px outset var(--window-gray);
+  background: var(--window-gray);
+}
+
+.startMenuBanner {
+  display: flex;
+  width: 35px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px 5px;
+  color: var(--paper);
+  background: var(--pink-title);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 15px;
+}
+
+.startMenuBanner span {
+  color: var(--pink-highlight);
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.startMenuItems {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 7px;
+}
+
+.startMenuItems button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 7px;
+  border: 1px solid transparent;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.startMenuItems button:hover,
+.startMenuItems button:focus-visible {
+  border-color: var(--pink-select);
+  background: var(--pink-select);
+  color: white;
+}
+
+
+.taskbar {
+  position: fixed;
+  z-index: 9;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 36px;
+  padding: 3px 5px;
+  border-top: 2px outset var(--window-gray);
+  background: var(--window-gray);
+}
+
+.startButton,
+.taskbarApp {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 3px 8px;
+  border: 2px outset var(--window-gray);
+  color: var(--ink);
+  background: var(--window-gray);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.startButton svg {
+  color: var(--pink-title);
+}
+
+.startButton.isPressed {
+  border-style: inset;
+  background: var(--pink-highlight);
+}
+
+.taskbarApp {
+  min-width: 190px;
+  font-size: 11px;
+  text-align: left;
+}
+
+.taskbarApp.isActive {
+  border-style: inset;
+  background: var(--pink-highlight);
+}
+
+.taskbarClock {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: 2px inset var(--window-gray);
+  color: var(--muted-ink);
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .desktopShell {
+    padding: 8px 8px calc(36px + 8px);
+  }
+
+  .isMaximizedShell {
+    padding: 0;
+  }
+
+  .desktopWindow {
+    width: 100%;
+    /* height: 100%; */
+    min-height: 0;
+  }
+
+  .systemSidebar {
+    display: none;
+  }
+
+  .windowToolbar {
+    display: flex;
+  }
+
+  .toolbarLocation {
+    display: none;
+  }
+
+  .windowFooter span:first-child {
+    display: none;
+  }
+
+  .taskbarApp {
+    min-width: 0;
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 520px) {
+  .startMenu {
+    left: 8px;
+  }
+
+  .desktopWindow {
+    height: 100%;
+  }
+}

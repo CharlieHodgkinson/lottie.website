@@ -1,0 +1,43 @@
+.fileGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    width: 100%;
+    padding: 8px;
+    align-items: start;
+}
+
+.skillFile {
+    display: flex;
+    min-height: 116px;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+    padding: 10px 6px;
+    border: 1px solid transparent;
+    color: var(--ink);
+    text-align: center;
+    cursor: default;
+}
+
+.skillFile:hover {
+    background: color-mix(var(--pink-highlight), transparent);
+}
+
+.skillFileIcon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border: 2px outset var(--window-gray);
+    color: var(--pink-title);
+    background: var(--pink-highlight);
+}
+
+.skillFile>span {
+    font-size: 12px;
+    line-height: 1.15;
+}
+
+.technologyIcon {
+    color: var(--pink-title);
+}

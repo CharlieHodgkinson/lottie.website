@@ -1,0 +1,58 @@
+.documentPage {
+    height: 100%;
+    padding: 4px;
+}
+
+.aboutDocument {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    height: 100%;
+    border: 2px outset var(--window-gray);
+    background: var(--window-gray);
+    padding: 50px;
+}
+
+.aboutSheet {
+    display: flex;
+    justify-content: unset;
+    width: min-content;
+    align-items: start;
+    padding: 30px 0;
+}
+
+.aboutImage {
+    min-width: 150px;
+    width: min(240px, 40vw);
+    border: 3px inset var(--window-shadow);
+}
+
+.aboutDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    font-size: 12px;
+
+    p {
+        margin: 4px 0;
+    }
+}
+
+.aboutDetailsInfo {
+    padding-left: 30px;
+}
+
+@media (max-width: 520px) {
+
+    .aboutDocument {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .aboutSheet {
+        justify-content: center;
+        width: 100%;
+    }
+}

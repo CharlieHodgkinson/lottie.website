@@ -1,0 +1,196 @@
+.resumeExplorer {
+    min-height: 606px;
+}
+
+.resumeBrowser {
+    display: flex;
+    flex-direction: column;
+}
+
+.resumeTable {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(72px, 15%) minmax(40px, 10%);
+    width: 100%;
+    height: min-content;
+}
+
+.resumeTable thead,
+.resumeTable tbody {
+    display: contents;
+}
+
+.resumeTableHead,
+.resumeRecord {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(72px, 15%) minmax(40px, 10%);
+}
+
+.resumeTableHead {
+    color: var(--ink);
+    background: var(--window-gray);
+
+    th {
+        overflow: hidden;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 3px 6px;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border: 2px outset var(--window-shadow);
+        border-top: none;
+        border-left: none;
+    }
+
+    th:last-child {
+        border-right: none;
+    }
+}
+
+
+.resumeRecord {
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 11px;
+
+    td {
+        overflow: hidden;
+        padding: 3px 6px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.resumeRecord:focus-visible,
+.resumeRecord:hover {
+    background: var(--pink-highlight);
+    outline: none;
+}
+
+.resumeRecord.isSelected {
+    color: white;
+    background: var(--pink-select);
+}
+
+.resumeDialog {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    width: min(560px, calc(100vw - 32px));
+    max-height: min(620px, calc(100vh - 32px));
+    margin: 0;
+    gap: 2px;
+    padding: 2px;
+    border: 3px outset var(--window-gray);
+    color: var(--ink);
+    background: var(--window-gray);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.resumeDialog:not([open]) {
+    display: none;
+}
+
+
+.resumeDetailsBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 26px;
+    padding: 3px 4px 3px 7px;
+    color: white;
+    background: var(--pink-title);
+    cursor: move;
+    font-size: 11px;
+    font-weight: bold;
+    user-select: none;
+    text-wrap: nowrap;
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.resumeDetailsBar span:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resumeCloseButton {
+    display: grid;
+    flex: 0 0 16px;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--window-deep);
+    color: var(--ink);
+    background: var(--window-gray);
+    box-shadow: inset 1px 1px var(--window-light), inset -1px -1px var(--window-shadow);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.resumeCloseButton:active {
+    border-style: inset;
+}
+
+.resumeDetailsBody {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 18px 20px 20px;
+    border: 2px inset var(--window-shadow);
+    background: var(--paper);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.resumeDetailsBody h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.resumeMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    color: #555;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.resumeDetailsBody p {
+    margin: 0 0 14px;
+}
+
+.resumeDetailsBody ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+@media (max-width: 520px) {
+    .resumeDialog {
+        max-height: calc(100dvh - 68px);
+    }
+
+    .resumeDetailsBody {
+        max-height: calc(100dvh - 136px);
+        padding: 14px;
+    }
+
+    .resumeMeta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
