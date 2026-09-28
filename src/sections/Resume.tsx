@@ -5,7 +5,7 @@ type ResumeRecord = {
   date: string;
   role: string;
   company: string;
-  description: string;
+  description?: string;
   type: string;
   bullets?: string[];
 };
@@ -17,16 +17,33 @@ type DialogPosition = {
 
 const records: ResumeRecord[] = [
   {
+    date: "2025-PRESENT",
+    role: "Frontend Software Engineer",
+    company: "Flawless AI",
+    type: "WORK",
+    bullets: [
+      "Led development of an Avid Media Composer extension from the ground up, enabling editors to create AI-powered visual dubs. Built a TypeScript, React and Vite SPA embedded via QtWebView, integrating with Avid's desktop SDK through a generated protobuf/gRPC-Web client with event streaming and authentication.",
+      "Selected by Avid as one of two partners featured in the Extensions Spotlight for Media Composer 2026.8, with the extension subsequently demonstrated at IBC.",
+      "Built complex video workflows for localisation and in-video ADR, including character refinement, timeline editing and media management across Flawless' TrueSync and DeepEditor products. These capabilities supported production of the world's first theatrically released full-length feature film using AI-powered immersive dubbing.",
+      "Developed real-time video playback and editing functionality using GraphQL APIs and webhooks, and contributed to Python-based Temporal workflows supporting asynchronous media-processing pipelines.",
+      "Worked directly with customer feedback to diagnose production issues, performing root-cause analysis across frontend applications, APIs and third-party integrations and translating feedback into product fixes and UX improvements.",
+      "Contributed to a shared design system, developing reusable table and UX components and designing and building a theme provider that enabled application-wide rebranding without customer-facing disruption.",
+      "Improved frontend reliability and maintainability by introducing Storybook integration testing into CI/CD pipelines, strengthening application-level error handling with Datadog RUM, and building user-action dashboards to accelerate issue detection and investigation.",
+    ],
+  },
+  {
     date: "2022-2025",
     role: "Fullstack Software Engineer",
     company: "Wealth Wizards",
     type: "WORK",
-    description: "Developed SaaS applications using a micro-frontend architecture with a mobile-first approach, ensuring compliance with WCAG AA accessibility standards. Built applications delivering automated financial advice in a highly regulated environment.",
     bullets: [
-      "Built 10+ SaaS applications using AWS, TypeScript and React with a mobile-first focus.",
-      "Led the development of a Pension Contributions Tool now live with 3 clients and 8,000+ unique users.",
-      "Developed sophisticated APIs for complex mathematical operations using functional programming.",
-      "Worked in an NX monorepo with 30+ apps and libraries using GitLab CI/CD.",
+      "Built 10+ SaaS applications using TypeScript, React and AWS, following a micro-frontend architecture and mobile-first approach and ensuring compliance with WCAG AA accessibility standards.",
+      "Led development of a pension contributions tool deployed with three clients and used by more than 8,000 users.",
+      "Contributed to a pension guidance tool that, within six months of launch, facilitated more than 65 pension consolidations representing £1.35m in transferred assets.",
+      "Designed and implemented APIs for complex financial calculations, applying functional programming concepts to model and process financial data within a highly regulated environment.",
+      "Embedded micro-frontend applications into live sites of several different clients with authentication using AWS Cognito,  and provided ongoing maintenance and support.",
+      "Developed within an Nx monorepo containing 30+ applications and libraries, using GitLab CI/CD pipelines for automated testing and deployment.",
+      "Contributed extensively to a shared design system built with Emotion, Storybook and Chromatic, developing reusable atomic components and customisable themes to support multiple clients.",
     ],
   },
   {
@@ -247,7 +264,9 @@ export const Resume = () => {
               <span>{selected.company}</span>
               <span>{selected.date}</span>
             </div>
-            <p>{selected.description}</p>
+            {selected.description && (
+              <p>{selected.description}</p>
+            )}
             {selected.bullets && (
               <ul>
                 {selected.bullets.map((bullet) => (
